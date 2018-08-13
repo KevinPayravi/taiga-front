@@ -337,7 +337,7 @@
         "LINK_CANCEL": "Nah, take me back. I think I remember it.",
         "SUCCESS_TITLE": "Check your inbox!",
         "SUCCESS_TEXT": "We sent you an email with the instructions to set a new password",
-        "ERROR": "According to our Oompa Loompas, your are not registered yet."
+        "ERROR": "According to our Oompa Loompas, you are not registered yet."
     },
     "CHANGE_PASSWORD": {
         "PAGE_TITLE": "Change you password - Taiga",
@@ -346,9 +346,9 @@
         "PLACEHOLDER_CURRENT_PASSWORD": "Your current password (or empty if you have no password yet)",
         "FIELD_NEW_PASSWORD": "New password",
         "PLACEHOLDER_NEW_PASSWORD": "Type a new password",
-        "FIELD_RETYPE_PASSWORD": "Retype new password",
+        "FIELD_RETYPE_PASSWORD": "Retype the new password",
         "PLACEHOLDER_RETYPE_PASSWORD": "Retype the new password",
-        "ERROR_PASSWORD_MATCH": "The passwords doesn't match"
+        "ERROR_PASSWORD_MATCH": "The passwords don't match"
     },
     "CHANGE_PASSWORD_RECOVERY_FORM": {
         "TITLE": "Create a new Taiga pass",
@@ -365,13 +365,13 @@
     },
     "INVITATION_LOGIN_FORM": {
         "NOT_FOUND": "Our Oompa Loompas can't find your invitation.",
-        "SUCCESS": "You've successfully joined this project, Welcome to {{project_name}}"
+        "SUCCESS": "You've successfully joined this project, welcome to {{project_name}}"
     },
     "HOME": {
         "PAGE_TITLE": "Home - Taiga",
         "PAGE_DESCRIPTION": "The Taiga home page with your main projects and all your assigned and watched user stories, tasks and issues",
         "EMPTY_WORKING_ON": "<strong>It feels empty, doesn't it?</strong> Start working with Taiga and you'll see here the stories, tasks and issues you are working on.",
-        "EMPTY_WATCHING": "<strong>Follow</strong> User Stories, Tasks, Issues in your projects and be notified about its changes :)",
+        "EMPTY_WATCHING": "<strong>Follow</strong> User Stories, Tasks, and Issues in your projects and be notified about their changes :)",
         "EMPTY_PROJECT_LIST": "You don't have any projects yet",
         "WORKING_ON_SECTION": "Working on",
         "WATCHING_SECTION": "Watching",
@@ -436,7 +436,7 @@
         "TITLE_LIGHTBOX_DELETE_ATTACHMENT": "Delete attachment...",
         "MSG_LIGHTBOX_DELETE_ATTACHMENT": "the attachment '{{fileName}}'",
         "ERROR_DELETE_ATTACHMENT": "We have not been able to delete: {{errorMessage}}",
-        "ERROR_MAX_SIZE_EXCEEDED": "'{{fileName}}' ({{fileSize}}) is too heavy for our Oompa Loompas, try it with a smaller than ({{maxFileSize}})"
+        "ERROR_MAX_SIZE_EXCEEDED": "'{{fileName}}' ({{fileSize}}) is too heavy for our Oompa Loompas, try it with a file smaller than ({{maxFileSize}})"
     },
     "PAGINATION": {
         "PREVIOUS": "Prev",
@@ -937,7 +937,7 @@
             "ERROR": "Our Oompa Loompas have some problems importing your dump data. Please try again.",
             "ERROR_TOO_MANY_REQUEST": "Sorry, our Oompa Loompas are very busy right now. Please try again in a few minutes.",
             "ERROR_MESSAGE": "Our Oompa Loompas have some problems importing your dump data: {{error_message}}",
-            "ERROR_MAX_SIZE_EXCEEDED": "'{{fileName}}' ({{fileSize}}) is too heavy for our Oompa Loompas, try it with a smaller than ({{maxFileSize}})",
+            "ERROR_MAX_SIZE_EXCEEDED": "'{{fileName}}' ({{fileSize}}) is too heavy for our Oompa Loompas, try it with a file smaller than ({{maxFileSize}})",
             "SYNC_SUCCESS": "Your project has been imported successfuly",
             "IMPORT": "Import",
             "WHO_IS": "Their tasks will be assigned to ...",
@@ -1412,7 +1412,7 @@
     },
     "CANCEL_ACCOUNT": {
         "TITLE": "Cancel your account",
-        "SUBTITLE": "We're sorry you are leaving the taiga, we hope you enjoyed your stay :)",
+        "SUBTITLE": "We're sorry you are leaving Taiga, we hope you enjoyed your stay :)",
         "PLACEHOLDER_INPUT_TOKEN": "cancel account token",
         "ACTION_LEAVING": "Yes, I'm leaving!",
         "SUCCESS": "Our Oompa Loompas removed your account"
@@ -1512,7 +1512,7 @@
     },
     "TEAM": {
         "PAGE_TITLE": "Team - {{projectName}}",
-        "PAGE_DESCRIPTION": "The team panel to show all the members of the project {{projectName}}: {{projectDescription}}",
+        "PAGE_DESCRIPTION": "The team panel shows all the members of the project {{projectName}}: {{projectDescription}}",
         "SECTION_NAME": "Team",
         "PLACEHOLDER_INPUT_SEARCH": "Search by full name...",
         "COLUMN_MR_WOLF": "Mr. Wolf",
@@ -1557,7 +1557,7 @@
         "ACTION_USE_GRAVATAR": "Use default image",
         "ACTION_DELETE_ACCOUNT": "Delete Taiga account",
         "ACTION_DOWNLOAD_PROFILE": "Download Taiga profile",
-        "CHANGE_EMAIL_SUCCESS": "<strong>Check your inbox!</strong><br />We have sent a mail to your account<br />with the instructions to set your new address",
+        "CHANGE_EMAIL_SUCCESS": "<strong>Check your inbox!</strong><br />We have sent an email to your account<br />with the instructions to set your new address",
         "CHANGE_PHOTO": "Change photo",
         "FIELD": {
             "USERNAME": "Username",
@@ -1674,7 +1674,7 @@
         "DASHBOARD": {
             "STEP1": {
                 "TITLE": "Your project",
-                "TEXT": "Welcome! Here you will find the projects you are involved on."
+                "TEXT": "Welcome! Here you will find the projects you are involved in."
             },
             "STEP2": {
                 "TITLE": "Working on",
