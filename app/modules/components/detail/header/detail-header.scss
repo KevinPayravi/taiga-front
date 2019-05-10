@@ -23,6 +23,7 @@
     }
     .item-generated-us,
     .item-origin-issue,
+    .item-origin-task,
     .task-belongs-to,
     .belong-to-epics-wrapper,
     .block-desc-container,
@@ -49,6 +50,7 @@
     .item-generated-us,
     .task-belongs-to,
     .item-origin-issue,
+    .item-origin-task,
     .issue-external-reference {
         a {
             cursor: pointer;
@@ -114,11 +116,13 @@
     .edit-title-button {
         background: none;
         display: inline;
-        margin-left: 1rem;
         transition: fill .2s;
         &:hover {
             fill: $primary;
         }
+    }
+    .save-title-button {
+        margin-left: 1rem;
     }
 }
 

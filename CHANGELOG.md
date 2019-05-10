@@ -2,6 +2,133 @@
 
 ## Unreleased
 
+## 4.2.5 (2019-05-09)
+- Revet remove bluebird dependency
+
+## 4.2.4 (2019-05-09)
+
+- Fix moment local for Chinese
+- Multiple minor fixes
+- Remove bluebird dependency
+
+## 4.2.3 (2019-04-16)
+
+- Enable hiding list items on Dashboard
+- Minor fixes.
+
+## 4.2.3 (2019-03-21)
+
+## 4.2.1 (2019-03-20)
+
+- Add user stories dashboard filter
+- Change Kanban zoom level
+- Filter history by entry type
+- Minor fixes.
+
+## 4.2.0 (2019-02-28)
+
+- Promote Tasks to US
+- Display US status on Taskboard
+- Add closed user stories filter in epics dashboard
+- Activate Hebrew and Basque languages
+- Minor fixes.
+
+## 4.1.1 (2019-02-04)
+
+- Pin npm Flot dependence
+
+## 4.1.0 (2019-02-04)
+
+### Misc
+
+- Minor fixes
+
+### Features
+
+- Negative filters
+- Activate Ukrainian language
+
+## 4.0.4 (2019-01-15)
+
+### Misc
+
+- Minor bug fixes.
+
+## 4.0.3 (2018-12-11)
+
+### Misc
+
+- Update locales.
+- Remove tips
+- Minor bug fixes.
+
+## 4.0.2 (2018-12-04)
+
+### Misc
+
+- Update locales.
+- Minor bug fixes.
+
+## 4.0.0 Larix cajanderi (2018-11-28)
+
+### Features
+
+- Custom home section (https://tree.taiga.io/project/taiga/issue/3059)
+- Custom fields (https://tree.taiga.io/project/taiga/issue/3725):
+    - Dropdown
+    - Checkbox
+    - Number
+- Bulk move unfinished objects in sprint (https://tree.taiga.io/project/taiga/issue/5451)
+- Paginate history activity
+- Improve notifications area (https://tree.taiga.io/project/taiga/issue/2165 and
+  https://tree.taiga.io/project/taiga/issue/3752)
+
+### Misc
+
+- Minor icon changes
+- Lots of small bug fixes
+
+## 3.4.6 (2018-10-30)
+
+### Misc
+
+- Update subscriptions messages
+
+## 3.4.5 (2018-10-15)
+
+### Misc
+
+- Security bug fixes
+- Minor bug fixes.
+
+## 3.4.4 (2018-09-19)
+
+### Misc
+
+- Minor bug fixes.
+
+## 3.4.3 (2018-09-19)
+
+### Misc
+
+- Allow reorder tasks in US (https://tree.taiga.io/project/taiga/issue/5479)
+- Minor bug fixes.
+
+## 3.4.2 (2018-08-27)
+
+### Misc
+
+- Fix pickadate conflicts
+- Modify meeting module URL checking
+- Minor bug fixes.
+
+## 3.4.1 (2018-08-21)
+
+### Misc
+
+- Add auto CTRL+C in admin icon for reports URL's.
+- Minor bug fixes.
+
 ## 3.4.0 Pinus contorta (2018-08-13)
 
 ### Features

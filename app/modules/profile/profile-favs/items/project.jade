@@ -3,7 +3,7 @@
         .list-itemtype-project-data-wrapper
             a.list-itemtype-project-image(
                 href="#"
-                tg-nav="project:project=vm.item.get('slug')"
+                tg-nav="project:project=vm.item.get('slug'),section=vm.item.get('my_homepage')"
                 title="{{ ::vm.item.get('name') }}"
             )
                 img(
@@ -15,13 +15,13 @@
                 h2
                     a.list-itemtype-project-name(
                         href="#"
-                        tg-nav="project:project=vm.item.get('slug')"
+                        tg-nav="project:project=vm.item.get('slug'),section=vm.item.get('my_homepage')"
                         title="{{ ::vm.item.get('name') }}"
                     ) {{ ::vm.item.get('name') }}
 
                     tg-svg(
                         ng-if="::vm.item.get('is_private')"
-                        svg-icon="icon-lock"
+                        svg-icon="icon-private"
                         svg-title-translate="PROJECT.PRIVATE"
                     )
 

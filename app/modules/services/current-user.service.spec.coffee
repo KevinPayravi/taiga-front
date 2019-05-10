@@ -1,5 +1,5 @@
 ###
-# Copyright (C) 2014-2017 Taiga Agile LLC <taiga@taiga.io>
+# Copyright (C) 2014-2018 Taiga Agile LLC
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-# File: current-user.service.spec.coffee
+# File: services/current-user.service.spec.coffee
 ###
 
 describe "tgCurrentUserService", ->
@@ -31,6 +31,7 @@ describe "tgCurrentUserService", ->
     _mockProjectsService = () ->
         mocks.projectsService = {
             getProjectsByUserId: sinon.stub()
+            getListProjectsByUserId: sinon.stub()
             bulkUpdateProjectsOrder: sinon.stub()
         }
 
@@ -96,8 +97,8 @@ describe "tgCurrentUserService", ->
             {id: 5, name: "fake5"}
         ])
 
-        mocks.projectsService.getProjectsByUserId = sinon.stub()
-        mocks.projectsService.getProjectsByUserId.withArgs(user.get("id")).promise().resolve(projects)
+        mocks.projectsService.getListProjectsByUserId = sinon.stub()
+        mocks.projectsService.getListProjectsByUserId.withArgs(user.get("id")).promise().resolve(projects)
 
         currentUserService.setUser(user).then () ->
             expect(currentUserService._user).to.be.equal(user)
@@ -127,9 +128,9 @@ describe "tgCurrentUserService", ->
         currentUserService._user = user
         currentUserService.setProjects = sinon.stub()
 
-        mocks.projectsService.getProjectsByUserId.withArgs(1).promise().resolve(project)
+        mocks.projectsService.getListProjectsByUserId.withArgs(1).promise().resolve(project)
 
-        currentUserService.loadProjects().then () ->
+        currentUserService.loadProjectsList().then () ->
             expect(currentUserService.setProjects).to.have.been.calledWith(project)
 
             done()

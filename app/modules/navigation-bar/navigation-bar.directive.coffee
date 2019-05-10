@@ -1,5 +1,5 @@
 ###
-# Copyright (C) 2014-2017 Taiga Agile LLC <taiga@taiga.io>
+# Copyright (C) 2014-2018 Taiga Agile LLC
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-# File: navigation-bar.directive.coffee
+# File: navigation-bar/navigation-bar.directive.coffee
 ###
 
 NavigationBarDirective = (currentUserService, navigationBarService, locationService, navUrlsService, config) ->
@@ -26,7 +26,7 @@ NavigationBarDirective = (currentUserService, navigationBarService, locationServ
         taiga.defineImmutableProperty(scope.vm, "isEnabledHeader", () -> navigationBarService.isEnabledHeader())
 
         scope.vm.publicRegisterEnabled = config.get("publicRegisterEnabled")
-        scope.vm.supportUrl = config.get("supportUrl")
+        scope.vm.customSupportUrl = config.get("supportUrl")
 
         scope.vm.login = ->
             nextUrl = encodeURIComponent(locationService.url())
@@ -34,10 +34,16 @@ NavigationBarDirective = (currentUserService, navigationBarService, locationServ
             locationService.search({next: nextUrl})
 
         scope.$on "$routeChangeSuccess", () ->
-            if locationService.path() == "/"
-                scope.vm.active = true
-            else
-                scope.vm.active = false
+            scope.vm.active = null
+            switch locationService.path()
+                when "/"
+                    scope.vm.active = 'dashboard'
+                when "/discover"
+                    scope.vm.active = 'discover'
+                when "/notifications"
+                    scope.vm.active = 'notifications'
+                when "/projects/"
+                    scope.vm.active = 'projects'
 
     directive = {
         templateUrl: "navigation-bar/navigation-bar.html"

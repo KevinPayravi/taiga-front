@@ -555,8 +555,16 @@ gulp.task("coffee", function() {
 });
 
 gulp.task("moment-locales", function() {
+    replace_lang_path = { "zh-cn": "zh-hans",
+            "zh-tw": "zh-hant" }
+
     return gulp.src(paths.modules + "moment/locale/*")
         .pipe(gulpif(isDeploy, uglify()))
+        .pipe(rename(function (path) {
+            if (path.basename in replace_lang_path) {
+                path.basename = replace_lang_path[path.basename]
+            }
+        }))
         .pipe(gulp.dest(paths.distVersion + "locales/moment-locales/"));
 });
 

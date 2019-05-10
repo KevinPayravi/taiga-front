@@ -3,6 +3,7 @@
         "YES": "はい",
         "NO": "いいえ",
         "OR": "または",
+        "I_GET_IT": "OK, I get it",
         "LOADING": "ロード中...",
         "DATE": "YYYY年MM月DD日",
         "DATETIME": "YYYY年MM月DD日 HH時mm分",
@@ -13,7 +14,8 @@
         "UNLINK": "リンク解除",
         "CREATE": "作成",
         "ADD": "追加",
-        "COPY_TO_CLIPBOARD": "クリップボードにコピー: Ctrl+C",
+        "COPY_TO_CLIPBOARD": "Copy to clipboard",
+        "COPIED_TO_CLIPBOARD": "Text has been copied to clipboard",
         "EDIT": "編集",
         "DRAG": "ドラッグ",
         "TAG_LINE": "あなたのアジャイルでフリーでオープンソースなマネジメントツールです",
@@ -31,7 +33,7 @@
         "PLUGINS": "プラグイン",
         "ONE_ITEM_LINE": "１行に１アイテム",
         "NEW_BULK": "一括登録",
-        "RELATED_TASKS": "関連タスク",
+        "SUBTASKS": "Subtasks",
         "PREVIOUS": "前",
         "NEXT": "次へ",
         "LOGOUT": "ログアウト",
@@ -198,6 +200,19 @@
             "BUTTON_TITLE": "賛成/反対の投票を行う",
             "COUNTER_TITLE": "{total, plural, one{one vote} other{# 人が賛成}}"
         },
+        "PROMOTE_TO_US": "ユーザーストーリーに変更する",
+        "PROMOTED_ISSUES": "This Issue has been promoted to US:",
+        "PROMOTED_TASKS": "This Task has been promoted to US:",
+        "CONFIRM_PROMOTE": {
+            "ISSUE": {
+                "TITLE": "Promote this Issue to a new user story",
+                "MESSAGE": "この課題から新しいユーザーストーリーを作成しますか？"
+            },
+            "TASK": {
+                "TITLE": "Promote this Task to a new user story",
+                "MESSAGE": "Are you sure you want to create a new US from this Task?"
+            }
+        },
         "CUSTOM_ATTRIBUTES": {
             "CUSTOM_FIELDS": "カスタムフィールド",
             "SAVE": "カスタムフィールドを保存",
@@ -213,6 +228,11 @@
             "ACTION_SAVE_CUSTOM_FILTER": "カスタムフィルターとして保存する",
             "PLACEHOLDER_FILTER_NAME": "フィルター名を入力しエンターキーを押してください。",
             "APPLIED_FILTERS_NUM": "フィルター適用中",
+            "TITLE_ADVANCED_FILTER": "Advanced",
+            "ADVANCED_FILTERS": {
+                "INCLUDE": "Include",
+                "EXCLUDE": "Exclude"
+            },
             "CATEGORIES": {
                 "TYPE": "タイプ",
                 "STATUS": "ステータス",
@@ -375,7 +395,12 @@
         "EMPTY_PROJECT_LIST": "参加中のプロジェクトがありません",
         "WORKING_ON_SECTION": "取り組んでいる作業",
         "WATCHING_SECTION": "フォロー中",
-        "DASHBOARD": "プロジェクトのダッシュボート"
+        "DASHBOARD": "プロジェクトのダッシュボート",
+        "SET_HIDDEN": "Set as hidden",
+        "SET_VISIBLE": "Set as visible",
+        "NO_HIDDEN_ITEMS": "You have no hidden items",
+        "HIDE_HIDDEN": "Do not show hidden objects",
+        "SHOW_HIDDEN": "Show hidden objects"
     },
     "EPICS": {
         "TITLE": "エピック",
@@ -400,6 +425,8 @@
             "ASSIGNED_TO": "割当済",
             "STATUS": "ステータス",
             "PROGRESS": "進捗",
+            "CLOSED_US": "Closed user stories",
+            "CLOSED_EPICS": "Closed epics",
             "VIEW_OPTIONS": "オプションの表示"
         },
         "CREATE": {
@@ -458,7 +485,8 @@
             "PAGE_TITLE": "メンバーシップ - {{projectName}}",
             "ADD_BUTTON": "+ 新規メンバー",
             "ADD_BUTTON_TITLE": "新規メンバーを追加",
-            "LIMIT_USERS_WARNING_MESSAGE_FOR_ADMIN": "このプロジェクトは許可されている最大メンバー数<strong>({{members}}名)</strong>に達しました。",
+            "UPGRADE_BUTTON": "Upgrade your plan",
+            "LIMIT_USERS_WARNING_MESSAGE_FOR_ADMIN": "If you would like to <strong>add more members</strong>, please contact the project owner <a href='mailto:{{ owner_email }}' title='{{ owner_email }}'>{{ owner_email }}</a>",
             "LIMIT_USERS_WARNING_MESSAGE_FOR_OWNER": "このプロジェクトは許可されている最大メンバー数<strong>({{members}}名)</strong>に達しました。上限を増やしたい場合は管理者にお問い合わせください。"
         },
         "PROJECT_EXPORT": {
@@ -536,7 +564,9 @@
             "DESCRIPTION": "CSVのダウンロードボタンまたは生成されたURLへアクセスしてファイルを入手し、お好みのテキストエディタや表計算ソフトで開いてください。データの可視化や分析を簡単に行うことが可能です。",
             "HELP": "このファイルをどうやって表計算ソフトで活用すればいいですか？",
             "REGENERATE_TITLE": "URLが変更されます",
-            "REGENERATE_SUBTITLE": "CSV出力用のURLを変更しようとしています。前回のURLは無効化されます。よろしいですか？"
+            "REGENERATE_SUBTITLE": "You are going to change the CSV data access url. The previous url will be disabled. Are you sure?",
+            "DELETE_TITLE": "Delete URL",
+            "DELETE_SUBTITLE": "You are going to delete the current CSV data access url. Are you sure?"
         },
         "CSV": {
             "SECTION_TITLE_EPIC": "エピックレポート",
@@ -547,7 +577,9 @@
             "URL_FIELD_PLACEHOLDER": "CSV出力用のURLを作成してください",
             "TITLE_REGENERATE_URL": "CSV出力用のURLを作成",
             "ACTION_GENERATE_URL": "URL を生成",
-            "ACTION_REGENERATE": "再作成"
+            "ACTION_REGENERATE": "再作成",
+            "TITLE_DELETE_URL": "Delete CSV url",
+            "ACTION_DELETE_URL": "削除する"
         },
         "CUSTOM_FIELDS": {
             "TITLE": "カスタムフィールド",
@@ -564,7 +596,10 @@
             "FIELD_TYPE_RICHTEXT": "リッチテキスト",
             "FIELD_TYPE_MULTI": "マルチライン",
             "FIELD_TYPE_DATE": "日時",
-            "FIELD_TYPE_URL": "Url"
+            "FIELD_TYPE_URL": "Url",
+            "FIELD_TYPE_DROPDOWN": "Dropdown",
+            "FIELD_TYPE_CHECKBOX": "Checkbox",
+            "FIELD_TYPE_NUMBER": "Number"
         },
         "PROJECT_VALUES": {
             "PAGE_TITLE": "{{sectionName}} - プロジェクト値 - {{projectName}}",
@@ -781,7 +816,7 @@
     "USER": {
         "PROFILE": {
             "PAGE_TITLE": "{{userFullName}} (@{{userUsername}})",
-            "EDIT": "プロフィールを編集",
+            "USER_SETTINGS": "ユーザー設定",
             "CLOSED_US": "完了したユーザーストーリー",
             "PROJECTS": "プロジェクト",
             "PROJECTS_EMPTY": "{{username}} はまだプロジェクトに参加していません",
@@ -842,6 +877,7 @@
         "SECTION": {
             "SEARCH": "検索",
             "TIMELINE": "タイムライン",
+            "EPICS": "エピック",
             "BACKLOG": "バックログ",
             "KANBAN": "かんばん",
             "ISSUES": "課題",
@@ -863,8 +899,8 @@
             "NOTIFICATIONS": "通知",
             "VIEW_PROFILE_TITLE": "プロフィールを表示",
             "VIEW_PROFILE": "プロフィールを表示",
-            "EDIT_PROFILE_TITLE": "プロフィールを編集",
-            "EDIT_PROFILE": "プロフィールを編集",
+            "USER_SETTINGS_TITLE": "設定を編集",
+            "USER_SETTINGS": "ユーザー設定",
             "CHANGE_PASSWORD_TITLE": "パスワード変更",
             "CHANGE_PASSWORD": "パスワード変更",
             "DASHBOARD_TITLE": "ダッシュボード",
@@ -1086,14 +1122,21 @@
             "LAST_SPRINT_NAME": "最後のスプリントは<strong> {{lastSprint}}</strong>でした ;-) "
         },
         "CREATE_EDIT": {
-            "PLACEHOLDER_DESCRIPTION": "Please add descriptive text to help others better understand this {{ objName }}",
-            "NEW": "New {{ objName }}",
-            "EDIT": "Edit {{ objName }}",
-            "ADD_EXISTING": "Add {{ objName }} to {{ targetName }}",
+            "TASK_PLACEHOLDER_DESCRIPTION": "Please add descriptive text to help others better understand this Task",
+            "ISSUE_PLACEHOLDER_DESCRIPTION": "Please add descriptive text to help others better understand this Issue",
+            "US_PLACEHOLDER_DESCRIPTION": "Please add descriptive text to help others better understand this User Story",
+            "NEW_TASK": "New Task",
+            "NEW_ISSUE": "New Issue",
+            "NEW_US": "New User Story",
+            "EDIT_TASK": "Edit Task",
+            "EDIT_ISSUE": "Edit Issue",
+            "EDIT_US": "Edit User Story",
+            "ADD_EXISTING_ISSUE": "Add Issue to {{ targetName }}",
             "CONFIRM_CLOSE": "変更をまだ保存していません。\n本当にフォームを閉じてもよろしいですか？",
-            "EXISTING_OBJECT": "Existing {{ objName }}",
-            "NEW_OBJECT": "New {{ objName }}",
-            "CHOOSE_EXISTING": "Which {{ objName }}?"
+            "EXISTING_ISSUE": "Existing Issue",
+            "CHOOSE_EXISTING_ISSUE": "Which Issue?",
+            "ADD_ISSUE": "課題を追加",
+            "FILTER_ISSUES": "Filter Issues"
         },
         "DELETE_DUE_DATE": {
             "TITLE": "締切日を削除",
@@ -1104,7 +1147,7 @@
         },
         "REMOVE_RELATIONSHIP_WITH_EPIC": {
             "TITLE": "Remove relationship with Epic",
-            "MESSAGE": "Are you sure you want to delete the relationship of this User Story with the Epic <strong>{{epicSubject}}</strong>"
+            "MESSAGE": "Are you sure you want to remove the relationship of this User Story with the Epic <strong>{{epicSubject}}</strong>?"
         },
         "CREATE_MEMBER": {
             "PLACEHOLDER_INVITATION_TEXT": "(任意) 招待する際のメッセージを追加できます。新メンバーに素敵な言葉を贈りましょう ;-)",
@@ -1167,8 +1210,6 @@
         "PAGE_TITLE": "{{epicSubject}} - エピック {{epicRef}} - {{projectName}}",
         "PAGE_DESCRIPTION": "ステータス: {{epicStatus }}. 説明: {{epicDescription}}",
         "SECTION_NAME": "エピック",
-        "TITLE_LIGHTBOX_UNLINK_RELATED_USERSTORY": "関連するユーザーストーリーのリンクを削除",
-        "MSG_LIGHTBOX_UNLINK_RELATED_USERSTORY": "This action will remove the link to the related user story '{{subject}}'",
         "ERROR_UNLINK_RELATED_USERSTORY": "リンクの削除に失敗: {{errorMessage}}",
         "CREATE_RELATED_USERSTORIES": "関連付ける",
         "NEW_USERSTORY": "新しいユーザーストーリー",
@@ -1193,8 +1234,10 @@
         "TOTAL_POINTS": "合計ポイント",
         "ADD": "+ 新規ユーザーストーリーを追加する",
         "ADD_BULK": "新規ユーザーストーリーを一括で追加する",
-        "PROMOTED": "このユーザーストーリーはこちらの課題から発展:",
+        "PROMOTED_FROM_ISSUE": "このユーザーストーリーはこちらの課題から発展:",
+        "PROMOTED_FROM_TASK": "This US has been promoted from Task:",
         "TITLE_LINK_GO_TO_ISSUE": "課題へ移動",
+        "TITLE_LINK_GO_TO_TASK": "Go to task",
         "TITLE_DELETE_ACTION": "ユーザーストーリーを削除",
         "LIGHTBOX_TITLE_BLOKING_US": "Blocking us",
         "NOT_ESTIMATED": "見積もりが行われていません",
@@ -1371,7 +1414,7 @@
             "TITLE_ACTION_FOLD_ROW": "行をたたむ",
             "TITLE_ACTION_UNFOLD_ROW": "行をひろげる",
             "FIELD_POINTS": "ポイント",
-            "ROW_UNASSIGED_TASKS_TITLE": "未割当タスク",
+            "ROW_STORYLESS_TASKS_TITLE": "Storyless tasks",
             "ROW_ISSUES_TITLE": "Sprint Issues"
         },
         "CHARTS": {
@@ -1380,6 +1423,20 @@
             "OPTIMAL": "Optimal pending points for day {{formattedDate}} should be {{roundedValue}}",
             "REAL": "{{formattedDate}} の実際の保留ポイントは {{roundedValue}} です",
             "DATE": "YYYY年MM月DD日"
+        },
+        "MOVE_TO_SPRINT": {
+            "TITLE_ACTION_MOVE_UNFINISHED": "Move unfinished items to another sprint",
+            "TITLE_MOVE_UNFINISHED": "Move unfinished items to another open sprint",
+            "MOVE_TO_OPEN_SPRINT": "Move to open sprint",
+            "NO_OPEN_SPRINTS": "There are no other open sprints. Please create one first.",
+            "SELECT_DESTINATION_PLACEHOLDER": "Select destination",
+            "UNFINISHED_USER_STORIES_COUNT": "{total, plural, one{<strong>#</strong> unfinished user story} other{<strong>#</strong> unfinished user stories}}",
+            "UNFINISHED_STORYLESS_TASKS_COUNT": "{total, plural, one{<strong>#</strong> unfinished storyless task} other{<strong>#</strong> unfinished storyless tasks}}",
+            "UNFINISHED_ISSUES_COUNT": "{total, plural, one{<strong>#</strong> unfinished issue} other{<strong>#</strong> unfinished issue}}",
+            "WARNING_ISSUES_NOT_MOVED_TITLE": "You just moved all user stories and taks, and the sprint'll be closed",
+            "WARNING_ISSUES_NOT_MOVED": "The issues'll remain in the sprint and don't be removed",
+            "WARNING_SPRINT_STILL_OPEN_TITLE": "{total, plural, one{You just moved # item!} other{You just moved # items!}}",
+            "WARNING_SPRINT_STILL_OPEN": "Please note that the sprint {{sprintName}} <strong>will remain open</strong> as long as it contains unfinished items."
         }
     },
     "TASK": {
@@ -1407,8 +1464,7 @@
         "CLOSE": "通知を閉じる",
         "MAIL": "メールでの通知",
         "DESKTOP": "ブラウザアラートを使ったデスクトップ通知",
-        "ASK_DELETE": "本当に削除してもよろしいですか？",
-        "ASK_REMOVE_LINK": "Are you sure you want to remove the link?"
+        "ASK_DELETE": "本当に削除してもよろしいですか？"
     },
     "CANCEL_ACCOUNT": {
         "TITLE": "アカウントを解約する",
@@ -1429,10 +1485,8 @@
         "PAGE_DESCRIPTION": "課題一覧パネル {{projectName}}: {{projectDescription}}",
         "SECTION_NAME": "課題",
         "ACTION_NEW_ISSUE": "+ 新規課題",
-        "ACTION_PROMOTE_TO_US": "ユーザーストーリーに変更する",
         "ACTION_ATTACH_SPRINT": "Attach issue to Sprint",
         "ACTION_DETACH_SPRINT": "Detach issue from Sprint",
-        "PROMOTED": "この課題はこちらのユーザーストーリーへ発展:",
         "EXTERNAL_REFERENCE": "課題の作成元: ",
         "GO_TO_EXTERNAL_REFERENCE": "originへ移動",
         "ACTION_DELETE": "課題を削除",
@@ -1449,15 +1503,11 @@
         "FILTER_ISSUES": "Filter Issues",
         "CONFIRM_DETACH_FROM_SPRINT": {
             "TITLE": "Detach issue from Sprint",
-            "MESSAGE": "You are about to detach the issue from the sprint"
+            "MESSAGE": "You are about to detach the issue from the sprint <strong>{{ sprintName }}<strong>"
         },
         "CONFIRM_CHANGE_FROM_SPRINT": {
             "TITLE": "Attach issue to Sprint",
             "MESSAGE": "<strong>This issue is currently attached to sprint {{ oldSprintName }}</strong>. You are about to detach it from that sprint and attach it instead to sprint <strong>{{ newSprintName }}.</strong>"
-        },
-        "CONFIRM_PROMOTE": {
-            "TITLE": "この課題を新しいユーザーストーリーに変更",
-            "MESSAGE": "この課題から新しいユーザーストーリーを作成しますか？"
         },
         "TABLE": {
             "COLUMNS": {
@@ -1467,7 +1517,7 @@
                 "SUBJECT": "題名",
                 "VOTES": "投票",
                 "STATUS": "ステータス",
-                "CREATED": "作成",
+                "MODIFIED": "変更済み",
                 "ASSIGNED_TO": "割当"
             },
             "TITLE_ACTION_CHANGE_STATUS": "ステータスを変更",
@@ -1536,10 +1586,10 @@
         "AVATAR_MAX_SIZE": "[最大サイズ: {{maxFileSize}}]",
         "MENU": {
             "SECTION_TITLE": "ユーザー設定",
-            "USER_PROFILE": "ユーザープロフィール",
             "CHANGE_PASSWORD": "パスワード変更",
             "EMAIL_NOTIFICATIONS": "メール通知",
-            "DESKTOP_NOTIFICATIONS": "デスクトップ通知"
+            "DESKTOP_NOTIFICATIONS": "デスクトップ通知",
+            "EVENTS": "Events"
         },
         "NOTIFICATIONS": {
             "LIVE_SECTION_NAME": "Desktop Notifications",
@@ -1551,6 +1601,20 @@
             "OPTION_ALL": "すべて",
             "OPTION_INVOLVED": "Involved",
             "OPTION_NONE": "なし"
+        },
+        "PROJECT_SETTINGS": {
+            "SET_START_PAGES": "Set start pages",
+            "START_PAGES_PER_PROJECT": "Set start pages per project",
+            "COLUMN_PROJECT": "プロジェクト",
+            "COLUMN_STARTPAGE": "Start page",
+            "DEFAULT_VALUE": "Default"
+        },
+        "EVENTS": {
+            "SECTION_NAME": "Events",
+            "SECTION_DESCRIPTION": "Important events in Taiga header",
+            "SECTION_DESCRIPTION_EXPANDED": "(direct mentions, updates in items that you are watching...)",
+            "COLUMN_ENABLED": "Enabled",
+            "COLUMN_PROJECT": "プロジェクト"
         }
     },
     "USER_PROFILE": {
@@ -1648,7 +1712,26 @@
         "US_REMOVED_FROM_MILESTONE": "{{username}} さんがユーザーストーリー {{obj_name}} をバックログに追加しました",
         "BLOCKED": "{{username}} さんが {{obj_name}} をブロックしました",
         "UNBLOCKED": "{{username}} さんが {{obj_name}} のブロックを解除しました",
-        "NEW_USER": "{{username}} さんが Taiga に参加しました"
+        "NEW_USER": "{{username}} さんが Taiga に参加しました",
+        "ITEM_TYPES": {
+            "USERSTORY": "User Story",
+            "ISSUE": "課題",
+            "TASK": "タスク"
+        }
+    },
+    "EVENTS": {
+        "TITLE": "Events",
+        "MY_EVENTS": "My events",
+        "DISMISS_ALL": "Dismiss all",
+        "VIEW_ALL": "View all",
+        "NO_NEW_EVENTS": "No new events",
+        "NO_EVENTS_YET": "There are no events yet",
+        "ASSIGNED_YOU": "{{username}} assigned you to {{obj_name}}",
+        "ADDED_YOU_AS_WATCHER": "{{username}} added you as watcher on {{obj_name}}",
+        "ADDED_YOU_AS_MEMBER": "{{username}} added you as member",
+        "MENTIONED_YOU": "{{username}} mentioned you on {{obj_name}}",
+        "MENTIONED_YOU_IN_COMMENT": "{{username}} mentioned you in a comment on {{obj_name}}",
+        "COMMENTED": "{{username}} has commented on {{obj_name}}"
     },
     "LEGAL": {
         "TERMS_OF_SERVICE_AND_PRIVACY_POLICY_AD": "<span>When creating a new account, you agree to our </span><a href=\"{{ termsOfServiceUrl }}\" title=\"See terms of service\" target=\"_blank\">terms of service</a><span> and </span><a href=\"{{ privacyPolicyUrl }}\" title=\"See privacy policy\" target=\"_blank\">privacy policy</a>.",
@@ -1756,5 +1839,19 @@
             "ACTION_TITLE": "検索",
             "RESULTS": "検索結果"
         }
+    },
+    "TIPS": {
+        "TIPS_TITLE": "Tip",
+        "TIP_PROJECTS_ORDER": "You can sort projects on your project page by placing the ones most frequently accessed at the top.",
+        "TIP_VOTING": "Whether you ask your community or your other team members, upvoting items might serve as a way to detect explicit support for a particular task or issue.",
+        "TIP_ISSUES_TO_SPRINT": "You can attach issues to a particular sprint by clicking on the pin icon in the detail view.",
+        "TIP_DUE_DATE": "If you need to finish a task on a specific date, activate the DueDate from the detail view of the task.",
+        "TIP_IOCAIN": "You can signal to team members that a task is being particularly troublesome by clicking on the iocaine button. Doing so indicates that you welcome help, patience and understanding.",
+        "TIP_BLOCKED": "You can signal to other team members that something is preventing you from working on a particular task by marking it as \"blocked\"",
+        "TIP_PROMOTE": "Is your issue or task more complex than it first appeared? Go to the detail view and turn it into user story.",
+        "TIP_BULK": "If you want to add many tasks at once, choose bulk mode and write each task in a single line, one after the other.",
+        "TIP_ZOOM": "You can get a wider view of the kanban by reducing the information shown on the cards with the zoom control.",
+        "TIP_CUSTOM_FIELDS": "If you're an admin of the project, consider creating custom fields to expand the tasks' configuration.",
+        "TIP_SLIDE_ARROWS": "You can cycle over the results of a list, search or filter by clicking on the navigational arrows on the detail view of any one item."
     }
 }

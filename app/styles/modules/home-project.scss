@@ -22,6 +22,13 @@
     .intro-title {
         align-items: center;
         display: flex;
+        .icon-private {
+            fill: $gray-light;
+            height: 24px;
+            margin-left: .25rem;
+            margin-top: 1rem;
+            width: 24px;
+        }
     }
     h1 {
         color: $primary;
@@ -118,9 +125,11 @@
             @include svg-size(1.2rem);
             background: rgba($black, .5);
             bottom: 5%;
+            fill: $primary-light;
             padding: .1rem;
             position: absolute;
             right: 5%;
+            stroke: $primary-light;
         }
     }
 }

@@ -22,7 +22,7 @@
                         .list-itemtype-project-data-wrapper
                             a.list-itemtype-project-image(
                                 href="#"
-                                tg-nav="project:project=project.get('slug')"
+                                tg-nav="project:project=project.get('slug'),section=project.get('my_homepage')"
                                 title="{{ ::project.get('name') }}"
                             )
                                 img(
@@ -33,12 +33,12 @@
                                 h2
                                     a.project-title(
                                         href="#"
-                                        tg-nav="project:project=project.get('slug')"
+                                        tg-nav="project:project=project.get('slug'),section=project.get('my_homepage')"
                                         title="{{ ::project.get('name') }}"
                                     ) {{project.get('name')}}
                                     tg-svg(
                                         ng-if="project.get('is_private')",
-                                        svg-icon="icon-lock",
+                                        svg-icon="icon-private",
                                         svg-title-translate="PROJECT.PRIVATE"
                                     )
                                     tg-svg(

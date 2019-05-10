@@ -3,6 +3,7 @@
         "YES": "Ja",
         "NO": "Nee",
         "OR": "of",
+        "I_GET_IT": "OK, I get it",
         "LOADING": "Aan het laden...",
         "DATE": "DD MMM YYYY",
         "DATETIME": "DD MMM YYYY HH:mm",
@@ -13,7 +14,8 @@
         "UNLINK": "ontkoppel",
         "CREATE": "Aanmaken",
         "ADD": "Toevoegen",
-        "COPY_TO_CLIPBOARD": "Kopieër naar klembord: Ctrl+C",
+        "COPY_TO_CLIPBOARD": "Copy to clipboard",
+        "COPIED_TO_CLIPBOARD": "Text has been copied to clipboard",
         "EDIT": "Bewerk",
         "DRAG": "Sleep",
         "TAG_LINE": "Jouw agile, gratis en open source project management tool",
@@ -31,7 +33,7 @@
         "PLUGINS": "Plugins",
         "ONE_ITEM_LINE": "Eén item per regel...",
         "NEW_BULK": "Nieuwe bulk toevoeging",
-        "RELATED_TASKS": "Gerelateerde taken",
+        "SUBTASKS": "Subtasks",
         "PREVIOUS": "Vorige",
         "NEXT": "Volgende",
         "LOGOUT": "Afmelden",
@@ -49,8 +51,8 @@
             "ASSIGN_TO": "Assign To",
             "EDIT": "Edit card",
             "DELETE": "Delete card",
-            "DELETE_ISSUE": "Verwijder issue",
-            "DETACH_ISSUE_FROM_SPRINT": "Detach issue from sprint"
+            "DELETE_ISSUE": "Verwijder kwestie",
+            "DETACH_ISSUE_FROM_SPRINT": "Maak kwestie los van sprint"
         },
         "FORM_ERRORS": {
             "DEFAULT_MESSAGE": "Deze waarde lijkt ongeldig te zijn",
@@ -120,7 +122,7 @@
         "SEE_USER_PROFILE": "Bekijk het profiel van {{username}}",
         "USER_STORY": "User story",
         "TASK": "Taak",
-        "ISSUE": "Issue",
+        "ISSUE": "Kwestie",
         "EPIC": "Epic",
         "TAGS": {
             "PLACEHOLDER": "Enter tag",
@@ -198,6 +200,19 @@
             "BUTTON_TITLE": "Upvote/Downvote this item",
             "COUNTER_TITLE": "{total, plural, one{one vote} other{# votes}}"
         },
+        "PROMOTE_TO_US": "Promoveer tot User Story",
+        "PROMOTED_ISSUES": "This Issue has been promoted to US:",
+        "PROMOTED_TASKS": "This Task has been promoted to US:",
+        "CONFIRM_PROMOTE": {
+            "ISSUE": {
+                "TITLE": "Promote this Issue to a new user story",
+                "MESSAGE": "Weet je zeker dat je een nieuw US van deze kwestie wilt maken?"
+            },
+            "TASK": {
+                "TITLE": "Promote this Task to a new user story",
+                "MESSAGE": "Are you sure you want to create a new US from this Task?"
+            }
+        },
         "CUSTOM_ATTRIBUTES": {
             "CUSTOM_FIELDS": "Eigen velden",
             "SAVE": "Eigen velden opslaan",
@@ -213,6 +228,11 @@
             "ACTION_SAVE_CUSTOM_FILTER": "Als eigen filter opslaan",
             "PLACEHOLDER_FILTER_NAME": "Geef de filternaam in en druk op enter",
             "APPLIED_FILTERS_NUM": "filters applied",
+            "TITLE_ADVANCED_FILTER": "Advanced",
+            "ADVANCED_FILTERS": {
+                "INCLUDE": "Include",
+                "EXCLUDE": "Exclude"
+            },
             "CATEGORIES": {
                 "TYPE": "Type",
                 "STATUS": "Status",
@@ -268,12 +288,12 @@
                 "DELETE_TASKS": "Verwijder taken"
             },
             "ISSUES": {
-                "NAME": "Issues",
-                "VIEW_ISSUES": "Bekijk issues",
-                "ADD_ISSUES": "Issues toevoegen",
-                "MODIFY_ISSUES": "Bewerk issues",
-                "COMMENT_ISSUES": "Comment issues",
-                "DELETE_ISSUES": "Issues verwijderen"
+                "NAME": "Kwesties",
+                "VIEW_ISSUES": "Bekijk kwesties",
+                "ADD_ISSUES": "Kwesties toevoegen",
+                "MODIFY_ISSUES": "Bewerk kwesties",
+                "COMMENT_ISSUES": "Becommentarieer kwesties",
+                "DELETE_ISSUES": "Kwesties verwijderen"
             },
             "WIKI": {
                 "NAME": "Wiki\n",
@@ -369,13 +389,18 @@
     },
     "HOME": {
         "PAGE_TITLE": "Home -Taiga",
-        "PAGE_DESCRIPTION": "De Taiga start pagina met jouw projecten en de aan jou toegewezen en gevolgde user stories, taken en issues",
-        "EMPTY_WORKING_ON": "<strong>It feels empty, doesn't it?</strong> Start working with Taiga and you'll see here the stories, tasks and issues you are working on.",
-        "EMPTY_WATCHING": "<strong>Volg</strong> User Stories, Taken, Issues binnen jouw projecten en ontvang een bericht bij veranderingen :)",
+        "PAGE_DESCRIPTION": "De Taiga start pagina met jouw projecten en de aan jou toegewezen en gevolgde user stories, taken en kwesties",
+        "EMPTY_WORKING_ON": "Voelt leeg, vind je niet? Begin met Taiga te werken en hier zullen de stories, taken en kwesties verschijnen waar jij aan werkt.",
+        "EMPTY_WATCHING": "<strong>Volg</strong> User Stories, Taken, Kwesties binnen jouw projecten en ontvang een bericht bij veranderingen :)",
         "EMPTY_PROJECT_LIST": "Je hebt nog geen projecten",
         "WORKING_ON_SECTION": "Werkt aan",
         "WATCHING_SECTION": "Volgers",
-        "DASHBOARD": "Projects Dashboard"
+        "DASHBOARD": "Projects Dashboard",
+        "SET_HIDDEN": "Set as hidden",
+        "SET_VISIBLE": "Set as visible",
+        "NO_HIDDEN_ITEMS": "You have no hidden items",
+        "HIDE_HIDDEN": "Do not show hidden objects",
+        "SHOW_HIDDEN": "Show hidden objects"
     },
     "EPICS": {
         "TITLE": "EPICS",
@@ -400,6 +425,8 @@
             "ASSIGNED_TO": "Toegewezen",
             "STATUS": "Status",
             "PROGRESS": "Vooruitgang",
+            "CLOSED_US": "Closed user stories",
+            "CLOSED_EPICS": "Closed epics",
             "VIEW_OPTIONS": "Toon opties"
         },
         "CREATE": {
@@ -458,7 +485,8 @@
             "PAGE_TITLE": "Lidmaatschappen - {{projectName}}",
             "ADD_BUTTON": "+ Nieuwe gebruiker",
             "ADD_BUTTON_TITLE": "Nieuwe gebruiker toevoegen",
-            "LIMIT_USERS_WARNING_MESSAGE_FOR_ADMIN": "Unfortunately, this project has reached its limit of <strong>({{members}})</strong> allowed members.",
+            "UPGRADE_BUTTON": "Upgrade your plan",
+            "LIMIT_USERS_WARNING_MESSAGE_FOR_ADMIN": "If you would like to <strong>add more members</strong>, please contact the project owner <a href='mailto:{{ owner_email }}' title='{{ owner_email }}'>{{ owner_email }}</a>",
             "LIMIT_USERS_WARNING_MESSAGE_FOR_OWNER": "This project has reached its limit of <strong>({{members}})</strong> allowed members. If you would like to increase that limit please contact the administrator."
         },
         "PROJECT_EXPORT": {
@@ -486,7 +514,7 @@
             "NUMBER_US_POINTS_HELP": "0 for an undetermined number",
             "KANBAN": "Kanban",
             "KANBAN_DESCRIPTION": "Organiseer je project volgens het lean principe met dit bord.",
-            "ISSUES": "Issues",
+            "ISSUES": "Kwesties",
             "ISSUES_DESCRIPTION": "Volg de bugs, vragen en verbeteringen gerelateerd aan je project.\nMis niets meer!",
             "WIKI": "Wiki\n",
             "WIKI_DESCRIPTION": "Voeg toe, wijzig of verwijder inhoud in samenwerking met anderen. Dit is the juiste plaats voor je project documentatie.",
@@ -536,35 +564,42 @@
             "DESCRIPTION": "Download een CSV bestand of kopieer de gegenereerde URL en open deze in je favoriete tekst editor of spreadsheet om je eigen rapportages te maken. Op die manier kun je al je data gemakkelijk analyseren en visualiseren.",
             "HELP": "Hoe kan ik dit gebruiken in mijn eigen spreadsheet?",
             "REGENERATE_TITLE": "Wijzig URL",
-            "REGENERATE_SUBTITLE": "Je staat op het punt de CSV data toegang url te veranderen. De vorige url zal worden uitgeschakeld. Ben je zeker dat je ermee door wil gaan?"
+            "REGENERATE_SUBTITLE": "You are going to change the CSV data access url. The previous url will be disabled. Are you sure?",
+            "DELETE_TITLE": "Delete URL",
+            "DELETE_SUBTITLE": "You are going to delete the current CSV data access url. Are you sure?"
         },
         "CSV": {
             "SECTION_TITLE_EPIC": "epics reports",
             "SECTION_TITLE_US": "user stories rapporten",
             "SECTION_TITLE_TASK": "taak rapporten",
-            "SECTION_TITLE_ISSUE": "Issues rapport",
+            "SECTION_TITLE_ISSUE": "Kwesties rapporten",
             "DOWNLOAD": "Download CSV",
             "URL_FIELD_PLACEHOLDER": "Genereer de CSV url opnieuw alsjeblieft",
             "TITLE_REGENERATE_URL": "Opnieuw CSV url genereren",
             "ACTION_GENERATE_URL": "Url genereren",
-            "ACTION_REGENERATE": "Opnieuw genereren"
+            "ACTION_REGENERATE": "Opnieuw genereren",
+            "TITLE_DELETE_URL": "Delete CSV url",
+            "ACTION_DELETE_URL": "Verwijder"
         },
         "CUSTOM_FIELDS": {
             "TITLE": "Eigen velden",
-            "SUBTITLE": "Specifieer de aangepaste velden voor je user stories, taken en issues",
+            "SUBTITLE": "Specifieer de aangepaste velden voor je user stories, taken en kwesties",
             "EPIC_DESCRIPTION": "Epics custom fields",
             "EPIC_ADD": "Add a custom field in epics",
             "US_DESCRIPTION": "Eigen velden user stories",
             "US_ADD": "Voeg eigen velden toe in user stories",
             "TASK_DESCRIPTION": "Eigen velden taken",
             "TASK_ADD": "Voeg een aangepast veld toe in taken",
-            "ISSUE_DESCRIPTION": "Issues aangepaste velden",
-            "ISSUE_ADD": "Voeg een aangepast veld toe in issues",
+            "ISSUE_DESCRIPTION": "Kwesties aangepaste velden",
+            "ISSUE_ADD": "Voeg een aangepast veld toe in kwesties",
             "FIELD_TYPE_TEXT": "Tekst",
             "FIELD_TYPE_RICHTEXT": "Rich text",
             "FIELD_TYPE_MULTI": "Over meerdere regels",
             "FIELD_TYPE_DATE": "Date",
-            "FIELD_TYPE_URL": "Url"
+            "FIELD_TYPE_URL": "Url",
+            "FIELD_TYPE_DROPDOWN": "Dropdown",
+            "FIELD_TYPE_CHECKBOX": "Checkbox",
+            "FIELD_TYPE_NUMBER": "Number"
         },
         "PROJECT_VALUES": {
             "PAGE_TITLE": "{{sectionName}} - Project waardes - {{projectName}}",
@@ -579,28 +614,28 @@
         },
         "PROJECT_VALUES_PRIORITIES": {
             "TITLE": "Prioriteit",
-            "SUBTITLE": "Specificeer de prioriteit die je issues zullen hebben",
-            "ISSUE_TITLE": "Issue prioriteit",
+            "SUBTITLE": "Kies de prioriteit die je kwesties zullen hebben",
+            "ISSUE_TITLE": "Kwestie prioriteit",
             "ACTION_ADD": "Nieuwe prioriteit toevoegen"
         },
         "PROJECT_VALUES_SEVERITIES": {
             "TITLE": "Ernstniveaus",
-            "SUBTITLE": "Specifieer de ernstigheid die je issues zullen hebben",
+            "SUBTITLE": "Kies het belang die je kwesties zullen hebben",
             "ISSUE_TITLE": "Ernst van het issue",
             "ACTION_ADD": "Nieuwe ernst toevoegen"
         },
         "PROJECT_VALUES_STATUS": {
             "TITLE": "Statuses",
-            "SUBTITLE": "Specifieer de statussen waar je user stories, taken en issues door zullen gaan",
+            "SUBTITLE": "Specifieer de stadia die je user stories, taken en kwesties door zullen maken",
             "EPIC_TITLE": "Epic Statuses",
             "US_TITLE": "User Story Statuses",
             "TASK_TITLE": "Taak statussen",
-            "ISSUE_TITLE": "Issue statussen"
+            "ISSUE_TITLE": "Kwestie Statussen"
         },
         "PROJECT_VALUES_TYPES": {
             "TITLE": "Types",
-            "SUBTITLE": "Specifieer de types die je issues kunnen hebben",
-            "ISSUE_TITLE": "Issues types",
+            "SUBTITLE": "Kies de types die je kwesties kunnen hebben",
+            "ISSUE_TITLE": "Kwestie types",
             "ACTION_ADD": "Voeg nieuwe {{objName}} toe"
         },
         "PROJECT_VALUES_TAGS": {
@@ -616,7 +651,7 @@
         },
         "PROJECT_DUE_DATE_STATUS": {
             "TITLE": "Due Dates",
-            "SUBTITLE": "Specify the due dates your user stories, tasks and issues will go through if selected",
+            "SUBTITLE": "Specifieer de deadlines die je user stories, taken en kwesties door zullen maken",
             "US_TITLE": "User Story Due Date status",
             "ACTION_ADD_STATUS": "Nieuwe status toevoegen",
             "TASK_TITLE": "Task Due Date status",
@@ -720,8 +755,8 @@
             "LABEL_US_STATUS": "Default value for user story status selector",
             "LABEL_POINTS": "Standaard waarde voor punten selectie",
             "LABEL_TASK_STATUS": "Standaard waarde voor taak status selectie",
-            "LABEL_ISSUE_TYPE": "Standaard waarde voor issue type selectie",
-            "LABEL_ISSUE_STATUS": "Standaard waarde voor issue status selectie",
+            "LABEL_ISSUE_TYPE": "Standaard waarde voor kwestie type keuze",
+            "LABEL_ISSUE_STATUS": "Standaard waarde voor kwestie status keuze",
             "LABEL_PRIORITY": "Standaard waarde voor prioriteit selectie",
             "LABEL_SEVERITY": "Standaard waarde voor ernst selectie"
         },
@@ -781,7 +816,7 @@
     "USER": {
         "PROFILE": {
             "PAGE_TITLE": "{{userFullName}} (@{{userUsername}})",
-            "EDIT": "Profiel bewerken",
+            "USER_SETTINGS": "Gebruikersinstellingen",
             "CLOSED_US": "Gesloten US",
             "PROJECTS": "Projecten",
             "PROJECTS_EMPTY": "{{username}} heeft nog geen projecten",
@@ -821,8 +856,8 @@
             "FILTER_TYPE_USER_STORIES_TITLE": "Enkel verhalen van gebruikers weergeven",
             "FILTER_TYPE_TASKS": "Taken",
             "FILTER_TYPE_TASKS_TITLE": "Enkel taken weergeven",
-            "FILTER_TYPE_ISSUES": "Issues",
-            "FILTER_TYPE_ISSUES_TITLE": "Enkel problemen weergeven",
+            "FILTER_TYPE_ISSUES": "Kwesties",
+            "FILTER_TYPE_ISSUES_TITLE": "Alleen kwesties weergeven",
             "EMPTY_TITLE": "Het ziet er naar uit dat er hier niets is om weer te geven."
         }
     },
@@ -842,9 +877,10 @@
         "SECTION": {
             "SEARCH": "Zoek",
             "TIMELINE": "Tijdlijn",
+            "EPICS": "Epics",
             "BACKLOG": "Backlog",
             "KANBAN": "Kanban",
-            "ISSUES": "Issues",
+            "ISSUES": "Kwesties",
             "WIKI": "Wiki",
             "TEAM": "Team",
             "MEETUP": "Meet Up",
@@ -863,8 +899,8 @@
             "NOTIFICATIONS": "Notificaties",
             "VIEW_PROFILE_TITLE": "Bekijk profiel",
             "VIEW_PROFILE": "Bekijk profiel",
-            "EDIT_PROFILE_TITLE": "Bewerk je profiel",
-            "EDIT_PROFILE": "Bewerk profiel",
+            "USER_SETTINGS_TITLE": "Instellingen aanpassen",
+            "USER_SETTINGS": "Gebruikersinstellingen",
             "CHANGE_PASSWORD_TITLE": "Wachtwoord wijzigen",
             "CHANGE_PASSWORD": "Wachtwoord wijzigen",
             "DASHBOARD_TITLE": "Dashboard",
@@ -1003,15 +1039,15 @@
                 "NO_PROJECTS": "It seems you have no boards in Trello"
             },
             "GITHUB": {
-                "SELECTOR": "Import your GitHub project issues",
+                "SELECTOR": "Importeer je GitHub project kwesties",
                 "CHOOSE_PROJECT": "Find the project you want to import",
                 "NO_PROJECTS": "It seems you have no porjects in GitHub",
-                "HOW_DO_YOU_WANT_TO_IMPORT": "How do you want to import your issues into Taiga?",
+                "HOW_DO_YOU_WANT_TO_IMPORT": "Hoe wil je je kwesties in Taiga importeren?",
                 "KANBAN_PROJECT": "As user stories in a kanban project",
                 "KANBAN_PROJECT_DESCRIPTION": "After that you can enable scrum with backlog.",
                 "SCRUM_PROJECT": "As user stories in a scrum project",
                 "SCRUM_PROJECT_DESCRIPTION": "After that you can enable kanban mode.",
-                "ISSUES_PROJECT": "As issues",
+                "ISSUES_PROJECT": "Als kwesties",
                 "ISSUES_PROJECT_DESCRIPTION": "You will not be able to use your issues in kanban or scrum mode. You will be able to enable kanban or scrum for new user stories"
             },
             "ASANA": {
@@ -1031,9 +1067,9 @@
                 "URL": "Your Jira URL",
                 "KANBAN_PROJECT": "Kanban",
                 "SCRUM_PROJECT": "Scrum",
-                "ISSUES_PROJECT": "Issues",
-                "CREATE_AS_SCRUM_DESCRIPTION": "The issues and sub-issues of your project will be created as Taiga user stories and tasks.",
-                "CREATE_AS_KANBAN_DESCRIPTION": "The issues and sub-issues of your project will be created as Taiga user stories and tasks.",
+                "ISSUES_PROJECT": "Kwesties",
+                "CREATE_AS_SCRUM_DESCRIPTION": "De kwesties en sub-kwesties van je project zullen in Taiga als user stories en taken worden aangemaakt.",
+                "CREATE_AS_KANBAN_DESCRIPTION": "De kwesties en sub-kwesties van je project zullen in Taiga als user stories en taken worden aangemaakt.",
                 "CREATE_AS_ISSUES_DESCRIPTION": "What do you want to do with sub-issues from the Jira project? (Taiga doesn't allow sub-issues)",
                 "CREATE_NEW_ISSUES": "Convert sub-issues to new Taiga issues",
                 "NOT_CREATE_NEW_ISSUES": "Do not import sub-issues"
@@ -1050,7 +1086,7 @@
         "DELETE_PROJECT": {
             "TITLE": "Verwijder project",
             "QUESTION": "Weet je zeker dat je dit project wilt verwijderen?",
-            "SUBTITLE": "Alle projectgegevens (user stories, taken, issues, sprints en wiki pagina's) worden verwijderd! :-(",
+            "SUBTITLE": "Alle projectgegevens (user stories, taken, kwesties, sprints en wiki pagina's) zullen verloren gaan! :-(",
             "CONFIRM": "Ja, ik weet het zeker"
         },
         "ASSIGNED_TO": {
@@ -1086,14 +1122,21 @@
             "LAST_SPRINT_NAME": "laatste sprint is <strong> {{lastSprint}} ;-) </strong>"
         },
         "CREATE_EDIT": {
-            "PLACEHOLDER_DESCRIPTION": "Please add descriptive text to help others better understand this {{ objName }}",
-            "NEW": "New {{ objName }}",
-            "EDIT": "Edit {{ objName }}",
-            "ADD_EXISTING": "Add {{ objName }} to {{ targetName }}",
+            "TASK_PLACEHOLDER_DESCRIPTION": "Please add descriptive text to help others better understand this Task",
+            "ISSUE_PLACEHOLDER_DESCRIPTION": "Please add descriptive text to help others better understand this Issue",
+            "US_PLACEHOLDER_DESCRIPTION": "Please add descriptive text to help others better understand this User Story",
+            "NEW_TASK": "New Task",
+            "NEW_ISSUE": "New Issue",
+            "NEW_US": "New User Story",
+            "EDIT_TASK": "Edit Task",
+            "EDIT_ISSUE": "Edit Issue",
+            "EDIT_US": "Edit User Story",
+            "ADD_EXISTING_ISSUE": "Voeg kwestie toe aan {{ targetName }}",
             "CONFIRM_CLOSE": "You have not saved changes.\nAre you sure you want to close the form?",
-            "EXISTING_OBJECT": "Existing {{ objName }}",
-            "NEW_OBJECT": "New {{ objName }}",
-            "CHOOSE_EXISTING": "Which {{ objName }}?"
+            "EXISTING_ISSUE": "Bestaande Kwestie",
+            "CHOOSE_EXISTING_ISSUE": "Which Issue?",
+            "ADD_ISSUE": "Voeg Kwestie toe",
+            "FILTER_ISSUES": "Filter kwesties"
         },
         "DELETE_DUE_DATE": {
             "TITLE": "Delete due date",
@@ -1104,7 +1147,7 @@
         },
         "REMOVE_RELATIONSHIP_WITH_EPIC": {
             "TITLE": "Remove relationship with Epic",
-            "MESSAGE": "Are you sure you want to delete the relationship of this User Story with the Epic <strong>{{epicSubject}}</strong>"
+            "MESSAGE": "Are you sure you want to remove the relationship of this User Story with the Epic <strong>{{epicSubject}}</strong>?"
         },
         "CREATE_MEMBER": {
             "PLACEHOLDER_INVITATION_TEXT": "(Optioneel) Voeg een gepersonaliseerd bericht toe aan je uitnodiging. Vertel iets leuks aan je nieuwe leden ;-)",
@@ -1167,8 +1210,6 @@
         "PAGE_TITLE": "{{epicSubject}} - Epic {{epicRef}} - {{projectName}}",
         "PAGE_DESCRIPTION": "Status: {{epicStatus }}. Description: {{epicDescription}}",
         "SECTION_NAME": "Epic",
-        "TITLE_LIGHTBOX_UNLINK_RELATED_USERSTORY": "Unlink related userstory",
-        "MSG_LIGHTBOX_UNLINK_RELATED_USERSTORY": "This action will remove the link to the related user story '{{subject}}'",
         "ERROR_UNLINK_RELATED_USERSTORY": "We have not been able to unlink: {{errorMessage}}",
         "CREATE_RELATED_USERSTORIES": "Create a relationship with",
         "NEW_USERSTORY": "Nieuwe user story",
@@ -1193,8 +1234,10 @@
         "TOTAL_POINTS": "totaal aantal punten",
         "ADD": "+ Nieuwe User Story toevoegen",
         "ADD_BULK": "Voeg enkele nieuwe User Stories in bulk toe",
-        "PROMOTED": "Deze US werd gepromoveerd van Issue:",
-        "TITLE_LINK_GO_TO_ISSUE": "Ga naar probleem",
+        "PROMOTED_FROM_ISSUE": "Deze US werd gepromoveerd van Issue:",
+        "PROMOTED_FROM_TASK": "This US has been promoted from Task:",
+        "TITLE_LINK_GO_TO_ISSUE": "Ga naar kwestie",
+        "TITLE_LINK_GO_TO_TASK": "Go to task",
         "TITLE_DELETE_ACTION": "Verwijder user story",
         "LIGHTBOX_TITLE_BLOKING_US": "User story blokkeren",
         "NOT_ESTIMATED": "Niet ingeschat",
@@ -1359,8 +1402,8 @@
         "SECTION_NAME": "Taakbord",
         "TITLE_ACTION_ADD": "Voeg een nieuwe taak toe",
         "TITLE_ACTION_ADD_BULK": "Wat nieuwe taken in bulk toevoegen",
-        "TITLE_ACTION_ADD_ISSUE": "Add a new Issue",
-        "TITLE_ACTION_ADD_ISSUE_BULK": "Add some new Issues in bulk",
+        "TITLE_ACTION_ADD_ISSUE": "Voeg een nieuwe kwestie toe",
+        "TITLE_ACTION_ADD_ISSUE_BULK": "Voeg kwesties in bulk toe",
         "TITLE_ACTION_ASSIGN": "Toegewezen taak",
         "PLACEHOLDER_CARD_TITLE": "Dit zou een taak kunnen zijn",
         "PLACEHOLDER_CARD_TEXT": "Split Stories into tasks to track them separately",
@@ -1371,8 +1414,8 @@
             "TITLE_ACTION_FOLD_ROW": "Regel inklappen",
             "TITLE_ACTION_UNFOLD_ROW": "Regel uitklappen",
             "FIELD_POINTS": "punten",
-            "ROW_UNASSIGED_TASKS_TITLE": "Niet toegewezen taken",
-            "ROW_ISSUES_TITLE": "Sprint Issues"
+            "ROW_STORYLESS_TASKS_TITLE": "Storyless tasks",
+            "ROW_ISSUES_TITLE": "Sprint kwesties"
         },
         "CHARTS": {
             "XAXIS_LABEL": "Dagen",
@@ -1380,6 +1423,20 @@
             "OPTIMAL": "Optimaal resterende punten voor dag {{formattedDate}} zou {{roundedValue}} zijn",
             "REAL": "Werkelijk aantal resterende punten op {{formattedDate}} zijn {{roundedValue}}",
             "DATE": "DD MMMM YYYY"
+        },
+        "MOVE_TO_SPRINT": {
+            "TITLE_ACTION_MOVE_UNFINISHED": "Move unfinished items to another sprint",
+            "TITLE_MOVE_UNFINISHED": "Move unfinished items to another open sprint",
+            "MOVE_TO_OPEN_SPRINT": "Move to open sprint",
+            "NO_OPEN_SPRINTS": "There are no other open sprints. Please create one first.",
+            "SELECT_DESTINATION_PLACEHOLDER": "Select destination",
+            "UNFINISHED_USER_STORIES_COUNT": "{total, plural, one{<strong>#</strong> unfinished user story} other{<strong>#</strong> unfinished user stories}}",
+            "UNFINISHED_STORYLESS_TASKS_COUNT": "{total, plural, one{<strong>#</strong> unfinished storyless task} other{<strong>#</strong> unfinished storyless tasks}}",
+            "UNFINISHED_ISSUES_COUNT": "{total, plural, one{<strong>#</strong> unfinished issue} other{<strong>#</strong> unfinished issue}}",
+            "WARNING_ISSUES_NOT_MOVED_TITLE": "You just moved all user stories and taks, and the sprint'll be closed",
+            "WARNING_ISSUES_NOT_MOVED": "The issues'll remain in the sprint and don't be removed",
+            "WARNING_SPRINT_STILL_OPEN_TITLE": "{total, plural, one{You just moved # item!} other{You just moved # items!}}",
+            "WARNING_SPRINT_STILL_OPEN": "Please note that the sprint {{sprintName}} <strong>will remain open</strong> as long as it contains unfinished items."
         }
     },
     "TASK": {
@@ -1407,8 +1464,7 @@
         "CLOSE": "Notificatie sluiten",
         "MAIL": "Notificaties per mail",
         "DESKTOP": "Desktop notifications using browser alerts",
-        "ASK_DELETE": "Weet je zeker dat je wilt verwijderen?",
-        "ASK_REMOVE_LINK": "Are you sure you want to remove the link?"
+        "ASK_DELETE": "Weet je zeker dat je wilt verwijderen?"
     },
     "CANCEL_ACCOUNT": {
         "TITLE": "Annuleer je account",
@@ -1425,18 +1481,16 @@
         "SUCCESS": "Onze Oempa-Loempa's hebben je email bijgewerkt"
     },
     "ISSUES": {
-        "PAGE_TITLE": "Issues - {{projectName}}",
-        "PAGE_DESCRIPTION": "Het issue lijst overzicht van het project {{projectName}}: {{projectDescription}}",
-        "SECTION_NAME": "Issue",
-        "ACTION_NEW_ISSUE": "+ nieuw probleem",
-        "ACTION_PROMOTE_TO_US": "Promoveer tot User Story",
-        "ACTION_ATTACH_SPRINT": "Attach issue to Sprint",
-        "ACTION_DETACH_SPRINT": "Detach issue from Sprint",
-        "PROMOTED": "Dit issue is gepromoveerd tot US:",
+        "PAGE_TITLE": "Kwesties - {{projectName}}",
+        "PAGE_DESCRIPTION": "Het kwesties lijstje van het project {{projectName}}: {{projectDescription}}",
+        "SECTION_NAME": "Kwestie",
+        "ACTION_NEW_ISSUE": "+ nieuwe kwestie",
+        "ACTION_ATTACH_SPRINT": "Voeg kwestie toe aan Sprint",
+        "ACTION_DETACH_SPRINT": "Maak kwestie los van Sprint",
         "EXTERNAL_REFERENCE": "Dit issue is aangemaakt vanaf",
         "GO_TO_EXTERNAL_REFERENCE": "Ga naar bron",
-        "ACTION_DELETE": "Verwijderd issue",
-        "LIGHTBOX_TITLE_BLOKING_ISSUE": "Blokkerend issue",
+        "ACTION_DELETE": "Verwijderd kwestie",
+        "LIGHTBOX_TITLE_BLOKING_ISSUE": "Blokkerende kwestie",
         "LINK_TASKBOARD": "Taakbord",
         "TITLE_LINK_TASKBOARD": "Ga naar het taakbord",
         "FILTER_SPRINTS": "Filter Sprints",
@@ -1446,18 +1500,14 @@
             "SEVERITY": "Ernst",
             "TYPE": "Type"
         },
-        "FILTER_ISSUES": "Filter Issues",
+        "FILTER_ISSUES": "Filter kwesties",
         "CONFIRM_DETACH_FROM_SPRINT": {
-            "TITLE": "Detach issue from Sprint",
-            "MESSAGE": "You are about to detach the issue from the sprint"
+            "TITLE": "Maak kwestie los van Sprint",
+            "MESSAGE": "You are about to detach the issue from the sprint <strong>{{ sprintName }}<strong>"
         },
         "CONFIRM_CHANGE_FROM_SPRINT": {
-            "TITLE": "Attach issue to Sprint",
+            "TITLE": "Voeg kwestie toe aan Sprint",
             "MESSAGE": "<strong>This issue is currently attached to sprint {{ oldSprintName }}</strong>. You are about to detach it from that sprint and attach it instead to sprint <strong>{{ newSprintName }}.</strong>"
-        },
-        "CONFIRM_PROMOTE": {
-            "TITLE": "Bevorder dit issue tot een nieuwe user story",
-            "MESSAGE": "Weet je zeker dat je een nieuw US van dit issue wilt maken?"
         },
         "TABLE": {
             "COLUMNS": {
@@ -1467,20 +1517,20 @@
                 "SUBJECT": "Onderwerp",
                 "VOTES": "Stemmen",
                 "STATUS": "Status",
-                "CREATED": "Aangemaakt",
+                "MODIFIED": "Modified",
                 "ASSIGNED_TO": "Toegewezen aan"
             },
             "TITLE_ACTION_CHANGE_STATUS": "Status veranderen",
             "TITLE_ACTION_ASSIGNED_TO": "Toegewezen aan",
             "BLOCKED": "Geblokkeerd",
             "EMPTY": {
-                "TITLE": "Er zijn geen issues om te rapporteren :-)",
+                "TITLE": "Er zijn geen kwesties om te rapporteren :-)",
                 "SUBTITLE": "Heb je een issue gevonden?"
             }
         }
     },
     "ISSUE": {
-        "PAGE_TITLE": "{{issueSubject}} - Issue {{issueRef}} - {{projectName}}",
+        "PAGE_TITLE": "{{issueSubject}} - Kwestie {{issueRef}} - {{projectName}}",
         "PAGE_DESCRIPTION": "Status: {{issueStatus }}. Type: {{issueType}}, Prioriteit: {{issuePriority}}. Ernst: {{issueSeverity}}. Omschrijving: {{issueDescription}}"
     },
     "KANBAN": {
@@ -1499,10 +1549,10 @@
     },
     "SEARCH": {
         "PAGE_TITLE": "Zoek - {{projectName}}",
-        "PAGE_DESCRIPTION": "Zoek op alles, user stories, issues, taken, wiki pagina's, in het project {{projectName}}: {{projectDescription}}",
+        "PAGE_DESCRIPTION": "Zoek op alles, user stories, kwesties, taken, wiki pagina's, in het project {{projectName}}: {{projectDescription}}",
         "FILTER_EPICS": "Epics",
         "FILTER_USER_STORIES": "User Stories",
-        "FILTER_ISSUES": "Issues",
+        "FILTER_ISSUES": "Kwesties",
         "FILTER_TASKS": "Taken",
         "FILTER_WIKI": "Wiki pagina's",
         "PLACEHOLDER_SEARCH": "Zoeken in...",
@@ -1516,13 +1566,13 @@
         "SECTION_NAME": "Team",
         "PLACEHOLDER_INPUT_SEARCH": "Zoek op volledige naam",
         "COLUMN_MR_WOLF": "Dhr. Wolf",
-        "EXPLANATION_COLUMN_MR_WOLF": "Gesloten issues",
+        "EXPLANATION_COLUMN_MR_WOLF": "Gesloten kwesties",
         "COLUMN_IOCAINE": "Iocaine Drinker",
         "EXPLANATION_COLUMN_IOCAINE": "Ingenomen Iocaine dosissen",
         "COLUMN_CERVANTES": "Cervantes",
         "EXPLANATION_COLUMN_CERVANTES": "Wiki pagina's bewerkt",
         "COLUMN_BUG_HUNTER": "Bug Jager",
-        "EXPLANATION_COLUMN_BUG_HUNTER": "Issues gerapporteerd",
+        "EXPLANATION_COLUMN_BUG_HUNTER": "Kwesties gerapporteerd",
         "COLUMN_NIGHT_SHIFT": "Nacht Shift",
         "EXPLANATION_COLUMN_NIGHT_SHIFT": "Taak gesloten",
         "COLUMN_TOTAL_POWER": "Volledige Controle",
@@ -1536,10 +1586,10 @@
         "AVATAR_MAX_SIZE": "[Max. grootte: {{maxFileSize}}]",
         "MENU": {
             "SECTION_TITLE": "Gebruikersinstellingen",
-            "USER_PROFILE": "Gebruikersprofiel",
             "CHANGE_PASSWORD": "Wachtwoord wijzigen",
             "EMAIL_NOTIFICATIONS": "Email notificaties",
-            "DESKTOP_NOTIFICATIONS": "Desktop notifications"
+            "DESKTOP_NOTIFICATIONS": "Desktop notifications",
+            "EVENTS": "Events"
         },
         "NOTIFICATIONS": {
             "LIVE_SECTION_NAME": "Desktop Notifications",
@@ -1551,6 +1601,20 @@
             "OPTION_ALL": "Alles",
             "OPTION_INVOLVED": "Betrokken",
             "OPTION_NONE": "Geen"
+        },
+        "PROJECT_SETTINGS": {
+            "SET_START_PAGES": "Set start pages",
+            "START_PAGES_PER_PROJECT": "Set start pages per project",
+            "COLUMN_PROJECT": "Project",
+            "COLUMN_STARTPAGE": "Start page",
+            "DEFAULT_VALUE": "Default"
+        },
+        "EVENTS": {
+            "SECTION_NAME": "Events",
+            "SECTION_DESCRIPTION": "Important events in Taiga header",
+            "SECTION_DESCRIPTION_EXPANDED": "(direct mentions, updates in items that you are watching...)",
+            "COLUMN_ENABLED": "Enabled",
+            "COLUMN_PROJECT": "Project"
         }
     },
     "USER_PROFILE": {
@@ -1611,12 +1675,12 @@
         "HINT3_TITLE": "Reorder your projects to feature those most relevant to you.",
         "HINT3_TEXT": "The 10 projects are listed in the direct access bar at the top.",
         "HINT4_TITLE": "Did you forget what were you working on?",
-        "HINT4_TEXT": "Maak je geen zorgen, op je dashboard vind je al jouw open taken, issues en user stories in de volgorde waarin je hebt gewerkt."
+        "HINT4_TEXT": "Maak je geen zorgen, op je dashboard vind je al jouw open taken, kwesties en user stories in de volgorde waarin je hebt gewerkt."
     },
     "TIMELINE": {
         "UPLOAD_ATTACHMENT": "{{username}} heeft een nieuwe bijlage geüpload in {{obj_name}}",
         "US_CREATED": "{{username}} heeft een nieuwe US aangemaakt {{obj_name}} in {{project_name}}",
-        "ISSUE_CREATED": "{{username}} heeft een nieuw Issue aangemaakt {{obj_name}} in {{project_name}}",
+        "ISSUE_CREATED": "{{username}} heeft een nieuw kwestie aangemaakt {{obj_name}} in {{project_name}}",
         "TASK_CREATED": "{{username}} heeft een nieuwe taak aangemaakt {{obj_name}} in {{project_name}}",
         "TASK_CREATED_WITH_US": "{{username}} heeft de nieuwe taak {{obj_name}} aangemakt in {{project_name}} die hoort bij de US {{us_name}}",
         "WIKI_CREATED": "{{username}} heeft een nieuwe Wiki-pagina aangemaakt {{obj_name}} in {{project_name}}",
@@ -1648,7 +1712,26 @@
         "US_REMOVED_FROM_MILESTONE": "{{username}} heeft de US {{obj_name}} toegevoegd aan de Backlog",
         "BLOCKED": "{{username}} heeft {{obj_name}} geblokkeerd",
         "UNBLOCKED": "{{username}} heeft {{obj_name}} gedeblokkeerd",
-        "NEW_USER": "{{username}} heeft zich aangemeld voor Taiga"
+        "NEW_USER": "{{username}} heeft zich aangemeld voor Taiga",
+        "ITEM_TYPES": {
+            "USERSTORY": "User Story",
+            "ISSUE": "Issue",
+            "TASK": "Taak"
+        }
+    },
+    "EVENTS": {
+        "TITLE": "Events",
+        "MY_EVENTS": "My events",
+        "DISMISS_ALL": "Dismiss all",
+        "VIEW_ALL": "View all",
+        "NO_NEW_EVENTS": "No new events",
+        "NO_EVENTS_YET": "There are no events yet",
+        "ASSIGNED_YOU": "{{username}} assigned you to {{obj_name}}",
+        "ADDED_YOU_AS_WATCHER": "{{username}} added you as watcher on {{obj_name}}",
+        "ADDED_YOU_AS_MEMBER": "{{username}} added you as member",
+        "MENTIONED_YOU": "{{username}} mentioned you on {{obj_name}}",
+        "MENTIONED_YOU_IN_COMMENT": "{{username}} mentioned you in a comment on {{obj_name}}",
+        "COMMENTED": "{{username}} has commented on {{obj_name}}"
     },
     "LEGAL": {
         "TERMS_OF_SERVICE_AND_PRIVACY_POLICY_AD": "<span>When creating a new account, you agree to our </span><a href=\"{{ termsOfServiceUrl }}\" title=\"See terms of service\" target=\"_blank\">terms of service</a><span> and </span><a href=\"{{ privacyPolicyUrl }}\" title=\"See privacy policy\" target=\"_blank\">privacy policy</a>.",
@@ -1678,7 +1761,7 @@
             },
             "STEP2": {
                 "TITLE": "Werkt aan",
-                "TEXT": "Here you will find the User Stories, Tasks and Issues in which you are working on."
+                "TEXT": "Hier vind je de user stories, taken en kwesties waar je aan werkt."
             },
             "STEP3": {
                 "TITLE": "Volgers",
@@ -1756,5 +1839,19 @@
             "ACTION_TITLE": "Zoek",
             "RESULTS": "Search results"
         }
+    },
+    "TIPS": {
+        "TIPS_TITLE": "Tip",
+        "TIP_PROJECTS_ORDER": "You can sort projects on your project page by placing the ones most frequently accessed at the top.",
+        "TIP_VOTING": "Whether you ask your community or your other team members, upvoting items might serve as a way to detect explicit support for a particular task or issue.",
+        "TIP_ISSUES_TO_SPRINT": "You can attach issues to a particular sprint by clicking on the pin icon in the detail view.",
+        "TIP_DUE_DATE": "If you need to finish a task on a specific date, activate the DueDate from the detail view of the task.",
+        "TIP_IOCAIN": "You can signal to team members that a task is being particularly troublesome by clicking on the iocaine button. Doing so indicates that you welcome help, patience and understanding.",
+        "TIP_BLOCKED": "You can signal to other team members that something is preventing you from working on a particular task by marking it as \"blocked\"",
+        "TIP_PROMOTE": "Is your issue or task more complex than it first appeared? Go to the detail view and turn it into user story.",
+        "TIP_BULK": "If you want to add many tasks at once, choose bulk mode and write each task in a single line, one after the other.",
+        "TIP_ZOOM": "You can get a wider view of the kanban by reducing the information shown on the cards with the zoom control.",
+        "TIP_CUSTOM_FIELDS": "If you're an admin of the project, consider creating custom fields to expand the tasks' configuration.",
+        "TIP_SLIDE_ARROWS": "You can cycle over the results of a list, search or filter by clicking on the navigational arrows on the detail view of any one item."
     }
 }

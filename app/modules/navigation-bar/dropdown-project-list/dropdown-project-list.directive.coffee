@@ -1,5 +1,5 @@
 ###
-# Copyright (C) 2014-2017 Taiga Agile LLC <taiga@taiga.io>
+# Copyright (C) 2014-2018 Taiga Agile LLC
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -14,10 +14,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-# File: dropdown-project-list.directive.coffee
+# File: navigation-bar/dropdown-project-list/dropdown-project-list.directive.coffee
 ###
 
-DropdownProjectListDirective = (currentUserService, projectsService) ->
+DropdownProjectListDirective = (rootScope, currentUserService, projectsService) ->
     link = (scope, el, attrs, ctrl) ->
         scope.vm = {}
 
@@ -26,15 +26,23 @@ DropdownProjectListDirective = (currentUserService, projectsService) ->
         scope.vm.newProject = ->
             projectsService.newProject()
 
+        updateLinks = ->
+            el.find(".dropdown-project-list ul li a").data("fullUrl", "")
+
+        rootScope.$on("dropdown-project-list:updated", updateLinks)
+
     directive = {
         templateUrl: "navigation-bar/dropdown-project-list/dropdown-project-list.html"
-        scope: {}
+        scope: {
+            active: "="
+        }
         link: link
     }
 
     return directive
 
 DropdownProjectListDirective.$inject = [
+    "$rootScope",
     "tgCurrentUserService",
     "tgProjectsService"
 ]

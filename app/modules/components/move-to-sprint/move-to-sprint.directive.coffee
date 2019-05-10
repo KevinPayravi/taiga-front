@@ -1,5 +1,5 @@
 ###
-# Copyright (C) 2014-2017 Taiga Agile LLC <taiga@taiga.io>
+# Copyright (C) 2014-2018 Taiga Agile LLC
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -14,29 +14,28 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-# File: wiki-resource.service.coffee
+# File: components/move-to-sprint/move-to-sprint.directive.coffee
 ###
 
-Resource = (urlsService, http) ->
-    service = {}
+module = angular.module("taigaComponents")
 
-    service.getWikiHistory = (wikiId) ->
-        url = urlsService.resolve("history/wiki", wikiId)
-
-        httpOptions = {
-            headers: {
-                "x-disable-pagination": "1"
-            }
+moveToSprintDirective = (taskboardTasksService) ->
+    return {
+        controller: "MoveToSprintCtrl"
+        controllerAs: "vm"
+        bindToController: true
+        templateUrl: 'components/move-to-sprint/move-to-sprint.html'
+        scope:  {
+            sprint: '='
+            uss: '='
+            unnasignedTasks: '='
+            issues: '='
+            disabled: '='
         }
+    }
 
-        return http.get(url, null, httpOptions)
-            .then (result) ->
-                return Immutable.fromJS(result.data)
+moveToSprintDirective.$inject = [
+    'tgTaskboardTasks'
+]
 
-    return () ->
-        return {"wikiHistory": service}
-
-Resource.$inject = ["$tgUrls", "$tgHttp"]
-
-module = angular.module("taigaResources2")
-module.factory("tgWikiHistory", Resource)
+module.directive('tgMoveToSprint', [moveToSprintDirective])

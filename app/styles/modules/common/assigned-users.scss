@@ -28,19 +28,26 @@
 
     .tg-add-assigned {
         margin-top: .25rem;
+        &:hover {
+            span {
+                color: $primary;
+            }
+            .icon {
+                fill: $primary;
+                transition: fill .2s;
+            }
+        }
 
         .add-assigned {
             fill: $gray;
             opacity: 1;
             right: .5rem;
             top: 2rem;
-            &:hover {
-                cursor: pointer;
-                fill: $red;
-                transition: fill .2s;
-            }
         }
-
+        .icon {
+            height: .8rem;
+            width: .8rem;
+        }
         span {
             @include font-size(small);
             @include font-type(light);
@@ -58,7 +65,7 @@
     }
 
     .user-assigned,
-    .assign-to-me {
+    .self-assign {
         color: $primary;
         &.editable {
             color: $primary;
@@ -87,7 +94,7 @@
             margin-left: .5rem;
         }
 
-        .assigned-to-options {
+        .assigned-to-actions {
             align-content: center;
             display: flex;
             a {
@@ -95,7 +102,7 @@
             }
         }
         .user-assigned,
-        .assign-to-me {
+        .self-assign {
             color: $primary;
             cursor: default;
             &:hover {

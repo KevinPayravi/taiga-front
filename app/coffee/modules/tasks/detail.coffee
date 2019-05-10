@@ -1,10 +1,5 @@
 ###
-# Copyright (C) 2014-2017 Andrey Antukh <niwi@niwi.nz>
-# Copyright (C) 2014-2017 Jesús Espino Garcia <jespinog@gmail.com>
-# Copyright (C) 2014-2017 David Barragán Merino <bameda@dbarragan.com>
-# Copyright (C) 2014-2017 Alejandro Alonso <alejandro.alonso@kaleidos.net>
-# Copyright (C) 2014-2017 Juan Francisco Alcántara <juanfran.alcantara@kaleidos.net>
-# Copyright (C) 2014-2017 Xavi Julian <xavier.julian@kaleidos.net>
+# Copyright (C) 2014-2018 Taiga Agile LLC
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -84,6 +79,10 @@ class TaskDetailController extends mixOf(taiga.Controller, taiga.PageMixin)
         @appMetaService.setAll(title, description)
 
     initializeEventHandlers: ->
+        @scope.$on "promote-task-to-us:success", =>
+            @analytics.trackEvent("task", "promoteToUserstory", "promote task to userstory", 1)
+            @rootscope.$broadcast("object:updated")
+            @.loadTask()
         @scope.$on "attachment:create", =>
             @analytics.trackEvent("attachment", "create", "create attachment on task", 1)
         @scope.$on "custom-attributes-values:edit", =>

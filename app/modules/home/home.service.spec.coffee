@@ -1,5 +1,5 @@
 ###
-# Copyright (C) 2014-2017 Taiga Agile LLC <taiga@taiga.io>
+# Copyright (C) 2014-2018 Taiga Agile LLC
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-# File: home.service.spec.coffee
+# File: home/home.service.spec.coffee
 ###
 
 describe "tgHome", ->
@@ -45,7 +45,7 @@ describe "tgHome", ->
 
     _mockProjectsService = () ->
         mocks.projectsService = {
-            getProjectsByUserId: sinon.stub().promise()
+            getListProjectsByUserId: sinon.stub().promise()
         }
 
         provide.value "tgProjectsService", mocks.projectsService
@@ -78,7 +78,7 @@ describe "tgHome", ->
         project1 = {id: 1, name: "fake1", slug: "project-1"}
         project2 = {id: 2, name: "fake2", slug: "project-2"}
 
-        mocks.projectsService.getProjectsByUserId
+        mocks.projectsService.getListProjectsByUserId
             .withArgs(userId)
             .resolve(Immutable.fromJS([
                 project1,

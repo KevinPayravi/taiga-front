@@ -4,7 +4,7 @@ div.wrapper
         section.single-project-intro
             .project-logo(
                 href="#"
-                tg-nav="project:project=project.get('slug')"
+                tg-nav="project:project=project.get('slug'),section=project.get('my_homepage')"
                 title="{{::project.get('name')}}"
             )
                 img(
@@ -18,7 +18,7 @@ div.wrapper
                             span.project-name {{::vm.project.get("name")}}
                         tg-svg(
                             ng-if="::vm.project.get('is_private')"
-                            svg-icon="icon-lock"
+                            svg-icon="icon-private"
                             svgTitleTranslate: "PROJECT.PRIVATE"
                         )
 

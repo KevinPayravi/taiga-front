@@ -1,10 +1,5 @@
 ###
-# Copyright (C) 2014-2017 Andrey Antukh <niwi@niwi.nz>
-# Copyright (C) 2014-2017 Jesús Espino Garcia <jespinog@gmail.com>
-# Copyright (C) 2014-2017 David Barragán Merino <bameda@dbarragan.com>
-# Copyright (C) 2014-2017 Alejandro Alonso <alejandro.alonso@kaleidos.net>
-# Copyright (C) 2014-2017 Juan Francisco Alcántara <juanfran.alcantara@kaleidos.net>
-# Copyright (C) 2014-2017 Xavi Julian <xavier.julian@kaleidos.net>
+# Copyright (C) 2014-2018 Taiga Agile LLC
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -117,6 +112,16 @@ class EventsService
             Notification.requestPermission (permission) =>
               if (permission == "granted")
                   subscribe()
+
+    webNotifications: ->
+        if not @.auth.userData?
+            return
+        userId = @.auth.userData.get('id')
+
+        routingKey = "web_notifications.#{userId}"
+        randomTimeout = taiga.randomInt(700, 1000)
+        @.subscribe null, routingKey, (data) =>
+            @rootScope.$broadcast "notifications:new"
 
     ###########################################
     # Heartbeat (Ping - Pong)
@@ -248,6 +253,7 @@ class EventsService
         @.startHeartBeatMessages()
         @.notifications()
         @.liveNotifications()
+        @.webNotifications()
 
     onMessage: (event) ->
         @.log.debug "WebSocket message received: #{event.data}"

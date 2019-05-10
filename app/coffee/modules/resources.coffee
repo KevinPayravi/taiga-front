@@ -1,10 +1,5 @@
 ###
-# Copyright (C) 2014-2017 Andrey Antukh <niwi@niwi.nz>
-# Copyright (C) 2014-2017 Jesús Espino Garcia <jespinog@gmail.com>
-# Copyright (C) 2014-2017 David Barragán Merino <bameda@dbarragan.com>
-# Copyright (C) 2014-2017 Alejandro Alonso <alejandro.alonso@kaleidos.net>
-# Copyright (C) 2014-2017 Juan Francisco Alcántara <juanfran.alcantara@kaleidos.net>
-# Copyright (C) 2014-2017 Xavi Julian <xavier.julian@kaleidos.net>
+# Copyright (C) 2014-2018 Taiga Agile LLC
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -51,6 +46,10 @@ urls = {
     # User - Notification
     "permissions": "/permissions"
     "notify-policies": "/notify-policies"
+    "notifications": "/web-notifications"
+
+    # User Project Settings
+    "user-project-settings": "/user-project-settings"
 
     # User - Storage
     "user-storage": "/user-storage"
@@ -100,6 +99,9 @@ urls = {
 
     # Milestones/Sprints
     "milestones": "/milestones"
+    "move-userstories-to-milestone": "/milestones/%s/move_userstories_to_sprint"
+    "move-tasks-to-milestone": "/milestones/%s/move_tasks_to_sprint"
+    "move-issues-to-milestone": "/milestones/%s/move_issues_to_sprint"
 
     # Epics
     "epics": "/epics"
@@ -117,7 +119,6 @@ urls = {
     "bulk-update-us-milestone": "/userstories/bulk_update_milestone"
     "bulk-update-us-miles-order": "/userstories/bulk_update_sprint_order"
     "bulk-update-us-kanban-order": "/userstories/bulk_update_kanban_order"
-    "bulk-update-us-milestone": "/userstories/bulk_update_milestone"
     "userstories-filters": "/userstories/filters_data"
     "userstory-upvote": "/userstories/%s/upvote"
     "userstory-downvote": "/userstories/%s/downvote"
@@ -128,6 +129,7 @@ urls = {
     "tasks": "/tasks"
     "bulk-create-tasks": "/tasks/bulk_create"
     "bulk-update-task-taskboard-order": "/tasks/bulk_update_taskboard_order"
+    "bulk-update-task-milestone": "/tasks/bulk_update_milestone"
     "task-upvote": "/tasks/%s/upvote"
     "task-downvote": "/tasks/%s/downvote"
     "task-watch": "/tasks/%s/watch"
@@ -137,6 +139,7 @@ urls = {
     # Issues
     "issues": "/issues"
     "bulk-create-issues": "/issues/bulk_create"
+    "bulk-update-issue-milestone": "/issues/bulk_update_milestone"
     "issues-filters": "/issues/filters_data"
     "issue-upvote": "/issues/%s/upvote"
     "issue-downvote": "/issues/%s/downvote"
@@ -153,7 +156,7 @@ urls = {
     "history/us": "/history/userstory"
     "history/issue": "/history/issue"
     "history/task": "/history/task"
-    "history/wiki": "/history/wiki/%s"
+    "history/wiki": "/history/wiki"
 
     # Attachments
     "attachments/epic": "/epics/attachments"
@@ -266,6 +269,7 @@ module.run([
     "$tgNotifyPoliciesResourcesProvider",
     "$tgInvitationsResourcesProvider",
     "$tgRolesResourcesProvider",
+    "$tgUserProjectSettingsResourcesProvider",
     "$tgUserSettingsResourcesProvider",
     "$tgSprintsResourcesProvider",
     "$tgEpicsResourcesProvider",

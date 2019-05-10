@@ -34,13 +34,17 @@
             required
             ng-keydown="vm.onKeyDown($event)"
         )
-        button.edit-title-button.e2e-title-button(
+        button.edit-title-button.save-title-button.e2e-title-button(
             ng-click="vm.saveSubject()"
             tg-loading="vm.loadingSubject"
         )
             tg-svg(
                 svg-icon="icon-save"
             )
+        button.edit-title-button.cancel-title-button.e2e-cancel-title-button(
+            ng-click="vm.cancelEdit(false)"
+        )
+            tg-svg(svg-icon="icon-close")
 
 //- User Story belongs to epic
 .belong-to-epics-wrapper(ng-if="vm.item._name == 'userstories' && vm.project.is_epics_activated")
@@ -81,9 +85,9 @@
             format="pill"
         )
 
-//- User Stories generated from issue
+//- User Stories generated from issue/task
 .item-generated-us(ng-if="vm.item.generated_user_stories.length")
-    span(translate="ISSUES.PROMOTED")
+    span(ng-bind="'COMMON.PROMOTED_'+vm.item._name.toUpperCase() | translate")
     a(
         ng-repeat="userstory in vm.item.generated_user_stories track by userstory.id"
         tg-check-permission="view_us"
@@ -101,9 +105,21 @@
     )
         span {{ ::vm.item.external_reference[1] }}
 
+//- User Story promoted from task
+.item-origin-task(ng-if="vm.item.origin_task")
+    span(translate="US.PROMOTED_FROM_TASK")
+    a(
+        href=""
+        tg-check-permission="view_us"
+        tg-nav="project-tasks-detail:project=vm.project.slug,ref=vm.item.origin_task.ref"
+        title="{{'US.TITLE_LINK_GO_TO_TASK' | translate}}"
+    )
+        span.item-ref {{'#' + vm.item.origin_task.ref}}
+        span(ng-bind-html="vm.item.origin_task.subject | emojify")
+
 //- User Story promoted from issue
 .item-origin-issue(ng-if="vm.item.origin_issue")
-    span(translate="US.PROMOTED")
+    span(translate="US.PROMOTED_FROM_ISSUE")
     a(
         href=""
         tg-check-permission="view_us"

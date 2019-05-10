@@ -1,10 +1,5 @@
 ###
-# Copyright (C) 2014-2017 Andrey Antukh <niwi@niwi.nz>
-# Copyright (C) 2014-2017 Jesús Espino Garcia <jespinog@gmail.com>
-# Copyright (C) 2014-2017 David Barragán Merino <bameda@dbarragan.com>
-# Copyright (C) 2014-2017 Alejandro Alonso <alejandro.alonso@kaleidos.net>
-# Copyright (C) 2014-2017 Juan Francisco Alcántara <juanfran.alcantara@kaleidos.net>
-# Copyright (C) 2014-2017 Xavi Julian <xavier.julian@kaleidos.net>
+# Copyright (C) 2014-2018 Taiga Agile LLC
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -19,7 +14,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-# File: modules/base/navurl.coffee
+# File: modules/base/navurls.coffee
 ###
 
 taiga = @.taiga
@@ -59,7 +54,7 @@ module.service("$tgNavUrls", NavigationUrlsService)
 ## Navigation Urls Directive
 #############################################################################
 
-NavigationUrlsDirective = ($navurls, $auth, $q, $location, lightboxService) ->
+NavigationUrlsDirective = ($navurls, $auth, $q, $location, lightboxService, tgSections) ->
     # Example:
     # link(tg-nav="project-backlog:project='sss',")
 
@@ -123,7 +118,12 @@ NavigationUrlsDirective = ($navurls, $auth, $q, $location, lightboxService) ->
                     user = $auth.getUser()
                     options.user = user.username if user
 
+                    if name == 'project'
+                        path = tgSections.getPath(options['project'], options['section'])
+                        name = "#{name}-#{path}"
+
                     url = $navurls.resolve(name)
+
                     fullUrl = $navurls.formatUrl(url, options)
 
                     if $attrs.tgNavGetParams
@@ -164,4 +164,5 @@ NavigationUrlsDirective = ($navurls, $auth, $q, $location, lightboxService) ->
 
     return {link: link}
 
-module.directive("tgNav", ["$tgNavUrls", "$tgAuth", "$q", "$tgLocation", "lightboxService", NavigationUrlsDirective])
+module.directive("tgNav",
+    ["$tgNavUrls", "$tgAuth", "$q", "$tgLocation", "lightboxService", "$tgSections", NavigationUrlsDirective])

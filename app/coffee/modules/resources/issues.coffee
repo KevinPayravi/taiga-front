@@ -1,10 +1,5 @@
 ###
-# Copyright (C) 2014-2017 Andrey Antukh <niwi@niwi.nz>
-# Copyright (C) 2014-2017 Jesús Espino Garcia <jespinog@gmail.com>
-# Copyright (C) 2014-2017 David Barragán Merino <bameda@dbarragan.com>
-# Copyright (C) 2014-2017 Alejandro Alonso <alejandro.alonso@kaleidos.net>
-# Copyright (C) 2014-2017 Juan Francisco Alcántara <juanfran.alcantara@kaleidos.net>
-# Copyright (C) 2014-2017 Xavi Julian <xavier.julian@kaleidos.net>
+# Copyright (C) 2014-2018 Taiga Agile LLC
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -103,6 +98,11 @@ resourceProvider = ($repo, $http, $urls, $storage, $q) ->
         ns = "#{projectId}:#{hashSuffix}"
         hash = generateHash([projectId, ns])
         return $storage.get(hash) or {}
+
+    service.bulkUpdateMilestone = (projectId, milestoneId, data) ->
+        url = $urls.resolve("bulk-update-issue-milestone")
+        params = {project_id: projectId, milestone_id: milestoneId, bulk_issues: data}
+        return $http.post(url, params)
 
     return (instance) ->
         instance.issues = service

@@ -1,10 +1,5 @@
 ###
-# Copyright (C) 2014-2017 Andrey Antukh <niwi@niwi.nz>
-# Copyright (C) 2014-2017 Jesús Espino Garcia <jespinog@gmail.com>
-# Copyright (C) 2014-2017 David Barragán Merino <bameda@dbarragan.com>
-# Copyright (C) 2014-2017 Alejandro Alonso <alejandro.alonso@kaleidos.net>
-# Copyright (C) 2014-2017 Juan Francisco Alcántara <juanfran.alcantara@kaleidos.net>
-# Copyright (C) 2014-2017 Xavi Julian <xavier.julian@kaleidos.net>
+# Copyright (C) 2014-2018 Taiga Agile LLC
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -33,7 +28,7 @@ DataPickerConfig = ($translate, $config, $auth) ->
     return {
         get: () ->
             user = $auth.getUser()
-            lang = user.lang || $translate.preferredLanguage()
+            lang = user?.lang || $translate.preferredLanguage()
             rtlLanguages = $config.get("rtlLanguages", [])
             isRTL = rtlLanguages.indexOf(lang) > -1
             return {
@@ -377,7 +372,7 @@ module.directive("tgLightboxClose", [LightboxClose])
 Svg = () ->
     template = """
     <svg class="{{ 'icon ' + svgIcon }}" style="fill: {{ svgFill }}">
-        <use xlink:href="" ng-attr-xlink:href="{{ '#' + svgIcon }}">
+        <use xlink:href="" ng-attr-xlink:href="{{ '#' + svgIcon }}" href="{{ '#' + svgIcon }}">
             <title ng-if="svgTitle">{{svgTitle}}</title>
             <title ng-if="svgTitleTranslate">{{svgTitleTranslate | translate: svgTitleTranslateValues}}</title>
         </use>

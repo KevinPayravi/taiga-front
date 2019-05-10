@@ -17,7 +17,7 @@ nav.menu(
 
             li#nav-timeline
                 a(
-                    tg-nav="project:project=vm.project.get('slug')"
+                    tg-nav="project-timeline:project=vm.project.get('slug')"
                     ng-class="{active: vm.active == 'project-timeline'}"
                     aria-label="{{'PROJECT.SECTION.TIMELINE' | translate}}"
                     tabindex="2"
@@ -52,10 +52,10 @@ nav.menu(
                 span.backlog-sprints-menu(ng-show="backlogHover")
                   span(translate="PROJECT.SECTION.BACKLOG")
                   a(
-                      tg-repeat="sprint in vm.project.get('milestones') track by sprint.get('id')"
-                      ng-if="!sprint.get('closed')"
-                      tg-nav="project-taskboard:project=vm.project.get('slug'),sprint=sprint.get('slug')"
-                  ) {{::sprint.get('name')}}
+                      ng-repeat="sprint in vm.sprints track by sprint.id"
+                      ng-if="!sprint.closed"
+                      tg-nav="project-taskboard:project=vm.project.get('slug'),sprint=sprint.slug"
+                  ) {{sprint.name}}
 
             li#nav-kanban(ng-if="vm.menu.get('kanban')")
                 a(
@@ -104,7 +104,7 @@ nav.menu(
                     aria-label="{{'PROJECT.SECTION.MEETUP' | translate}}"
                     tabindex="7"
                 )
-                    tg-svg(svg-icon="icon-bubble")
+                    tg-svg(svg-icon="icon-meetup")
                     span.helper(translate="PROJECT.SECTION.MEETUP")
 
             li#nav-admin(ng-if="vm.project.get('i_am_admin')")

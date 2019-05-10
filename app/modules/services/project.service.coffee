@@ -1,5 +1,5 @@
 ###
-# Copyright (C) 2014-2017 Taiga Agile LLC <taiga@taiga.io>
+# Copyright (C) 2014-2018 Taiga Agile LLC
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -14,20 +14,21 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-# File: project.service.coffee
+# File: services/project.service.coffee
 ###
 
 taiga = @.taiga
 
 class ProjectService
     @.$inject = [
+        "$rootScope",
         "tgProjectsService",
         "tgXhrErrorService",
         "tgUserActivityService",
         "$interval"
     ]
 
-    constructor: (@projectsService, @xhrError, @userActivityService, @interval) ->
+    constructor: (@rootScope,  @projectsService, @xhrError, @userActivityService, @interval) ->
         @._project = null
         @._section = null
         @._sectionsBreadcrumb = Immutable.List()
@@ -39,6 +40,26 @@ class ProjectService
         taiga.defineImmutableProperty @, "activeMembers", () => return @._activeMembers
 
         @.autoRefresh() if !window.localStorage.e2e
+        @.watchSignals()
+
+    watchSignals: () ->
+        fetchRequiredSignals = [
+            "admin:project-modules:updated"
+            "admin:project-roles:updated"
+            "admin:project-default-values:updated"
+            "admin:project-values:updated"
+            "admin:project-values:move"
+            "admin:project-custom-attributes:updated"
+            "sprintform:create:success"
+            "sprintform:edit:success"
+            "sprintform:remove:success"
+            "tags:updated"
+        ]
+        for signal in fetchRequiredSignals
+            @rootScope.$on(signal, @.manageProjectSignal)
+
+    manageProjectSignal: (ctx) =>
+        @.fetchProject()
 
     cleanProject: () ->
         @._project = null

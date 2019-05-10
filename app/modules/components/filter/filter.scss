@@ -1,9 +1,14 @@
+// custom colors
+$exclude-background: #fcc;
+$radio-mark-background: #d6d5d5;
+
 tg-filter {
     background-color: $mass-white;
-    box-shadow: 1px 1px 5px rgba($primary, .2);
     display: block;
     left: 0;
+    max-height: 100%;
     min-height: 100%;
+    overflow-y: scroll;
     padding: 1rem 0;
     position: absolute;
     top: 0;
@@ -14,14 +19,94 @@ tg-filter {
     .filters-applied {
         padding: 0 1rem 1rem;
         .single-filter {
+            &.exclude {
+                background: $exclude-background;
+                text-decoration: line-through;
+            }
             &:hover {
                 color: currentColor;
                 cursor: default;
-                opacity: .5;
                 transition: none;
             }
         }
     }
+    .filters-advanced {
+        @include font-type(light);
+        @include font-size(xsmall);
+        font-size: 10pt;
+        font-weight: 600;
+        padding: 0 1rem 1rem;
+
+        .collapsed.exclude {
+            color: $red-light;
+        }
+
+        a .icon {
+            margin-left: 5px;
+            vertical-align: bottom;
+            width: .5rem;
+        }
+
+        .filters-advanced-form {
+            padding: .75rem 0;
+            text-align: center;
+        }
+
+        .custom-radio {
+            display: inline;
+
+            input[type=radio] {
+                display: none;
+            }
+        }
+
+        .filter-mode {
+            cursor: pointer;
+
+            &.include {
+                margin-right: .75rem;
+            }
+            &.active .radio-mark-inner {
+                opacity: 1;
+            }
+            &.active.include {
+                color: $primary;
+            }
+            &.active.exclude {
+                color: $red-light;
+            }
+        }
+
+        .radio-mark,
+        .radio-mark-inner {
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .radio-mark {
+            background: $radio-mark-background;
+            height: 22px;
+            margin-right: 3px;
+            text-align: center;
+            width: 22px;
+        }
+
+        .radio-mark-inner {
+            height: 14px;
+            margin-top: 4px;
+            opacity: 0;
+            width: 14px;
+
+            &.include {
+                background: $primary;
+            }
+
+            &.exclude {
+                background: $red-light;
+            }
+        }
+    }
+
     h1,
     form {
         padding: 0 1rem;
@@ -40,6 +125,7 @@ tg-filter {
         top: .7rem;
     }
     &.open {
+        box-shadow: 1px 1px 5px rgba($primary, .2);
         transform: translateX(0);
     }
 }
@@ -55,6 +141,7 @@ tg-filter {
 
 .filters-cats {
     ul {
+        border-top: 1px solid $gray-light;
         margin-bottom: 0;
     }
     li {
@@ -62,6 +149,9 @@ tg-filter {
         text-transform: uppercase;
         &.selected {
             border-bottom: 0;
+        }
+        .filter-list {
+            min-height: 60px;
         }
     }
     .custom-filters {
@@ -109,11 +199,6 @@ tg-filter {
     opacity: .5;
     padding-right: .5rem;
     position: relative;
-    &:hover {
-        background: darken($whitish, 8%);
-        opacity: 1;
-        transition: opacity .2s linear;
-    }
     &.selected,
     &.active {
         color: $grayer;

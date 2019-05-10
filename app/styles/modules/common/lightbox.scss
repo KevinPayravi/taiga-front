@@ -220,7 +220,8 @@
     .subtitle,
     .message {
         display: block;
-        line-height: 2rem;
+        line-height: 1.5rem;
+        margin: 1rem 0;
         text-align: center;
     }
     .subtitle {
@@ -704,7 +705,7 @@
             flex-direction: column;
             margin: 0;
         }
-        .assigned-to-options {
+        .assigned-to-actions {
             display: block;
         }
         .remove-user {

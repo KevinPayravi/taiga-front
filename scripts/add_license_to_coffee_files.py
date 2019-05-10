@@ -1,7 +1,8 @@
 import os, sys
+from pathlib import Path
 
 LICENSE = """###
-# Copyright (C) 2014-2017 Taiga Agile LLC <taiga@taiga.io>
+# Copyright (C) 2014-2018 Taiga Agile LLC
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -40,9 +41,10 @@ def proccess_dirs(path):
                 data = fr.read()
 
                 if CONTAIN_TEXT not in data:
+                    relative_path = Path(file_path).relative_to(path)
                     with open(file_path, "w") as fw:
                         fw.seek(0)
-                        fw.write(LICENSE.format(file_name=file_name, data=data))
+                        fw.write(LICENSE.format(file_name=relative_path, data=data))
 
 
 for dir_path in DIRS:

@@ -63,9 +63,19 @@ div.taskboard-table(
                                 epics="us.epics"
                             )
                     div.us-data
+                        p.status-value(ng-if="usStatusById[us.status]")
+                            span(
+                              ng-style="{'color': usStatusById[us.status]['color']}"
+                              ng-bind="usStatusById[us.status]['name']")
                         p.points-value
                             span(ng-bind="us.total_points")
-                            span(translate="TASKBOARD.TABLE.FIELD_POINTS")
+                            span(ng-if="us.total_points"
+                                 translate="TASKBOARD.TABLE.FIELD_POINTS"
+                            )
+                            span.card-estimation.not-estimated(
+                                ng-if="!us.total_points",
+                                translate="US.NOT_ESTIMATED"
+                            )
                         tg-due-date.due-date(
                             due-date="us.due_date"
                             is-closed="us.is_closed"
@@ -117,7 +127,7 @@ div.taskboard-table(
                     )
                         tg-svg.fold-action(svg-icon="icon-unfold-row")
                     h3.us-title
-                        span(translate="TASKBOARD.TABLE.ROW_UNASSIGED_TASKS_TITLE")
+                        span(translate="TASKBOARD.TABLE.ROW_STORYLESS_TASKS_TITLE")
                     include ../components/addnewtask.jade
 
                 div.taskboard-cards-box.taskboard-column(

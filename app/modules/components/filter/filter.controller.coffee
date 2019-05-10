@@ -1,5 +1,5 @@
 ###
-# Copyright (C) 2014-2015 Taiga Agile LLC <taiga@taiga.io>
+# Copyright (C) 2014-2018 Taiga Agile LLC
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -14,16 +14,26 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-# File: filter.controller.coffee
+# File: components/filter/filter.controller.coffee
 ###
 
 class FilterController
-    @.$inject = []
+    @.$inject = ['$translate']
 
-    constructor: () ->
+    constructor: (@translate) ->
         @.opened = null
+        @.filterModeOptions = ["include", "exclude"]
+        @.filterModeLabels = {
+            "include": @translate.instant("COMMON.FILTERS.ADVANCED_FILTERS.INCLUDE"),
+            "exclude": @translate.instant("COMMON.FILTERS.ADVANCED_FILTERS.EXCLUDE"),
+        }
+        @.filterMode = 'include'
+        @.showAdvancedFilter = false
         @.customFilterForm = false
         @.customFilterName = ''
+
+    toggleAdvancedFilter: () ->
+        @.showAdvancedFilter = !@.showAdvancedFilter
 
     toggleFilterCategory: (filterName) ->
         if @.opened == filterName
@@ -53,6 +63,7 @@ class FilterController
         filter = {
             category: filterCategory
             filter: filter
+            mode: @.filterMode
         }
 
         @.onAddFilter({filter: filter})

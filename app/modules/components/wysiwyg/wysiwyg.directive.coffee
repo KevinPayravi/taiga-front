@@ -1,10 +1,5 @@
 ###
-# Copyright (C) 2014-2017 Andrey Antukh <niwi@niwi.nz>
-# Copyright (C) 2014-2017 Jesús Espino Garcia <jespinog@gmail.com>
-# Copyright (C) 2014-2017 David Barragán Merino <bameda@dbarragan.com>
-# Copyright (C) 2014-2017 Alejandro Alonso <alejandro.alonso@kaleidos.net>
-# Copyright (C) 2014-2017 Juan Francisco Alcántara <juanfran.alcantara@kaleidos.net>
-# Copyright (C) 2014-2017 Xavi Julian <xavier.julian@kaleidos.net>
+# Copyright (C) 2014-2018 Taiga Agile LLC
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -19,7 +14,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-# File: modules/components/wysiwyg/wysiwyg.directive.coffee
+# File: components/wysiwyg/wysiwyg.directive.coffee
 ###
 
 taiga = @.taiga
@@ -352,7 +347,7 @@ Medium = ($translate, $confirm, $storage, wysiwygService, animationFrame, tgLoad
         discardLocalStorage = () ->
             $storage.remove($scope.storageKey)
 
-        cancelWithConfirmation = () ->
+        $scope.cancelWithConfirmation = () ->
             if $scope.content == $scope.markdown
                 $scope.cancel()
 
@@ -509,7 +504,7 @@ Medium = ($translate, $confirm, $storage, wysiwygService, animationFrame, tgLoad
 
                 if $scope.editMode && code == 27
                     e.stopPropagation()
-                    $scope.$applyAsync(cancelWithConfirmation)
+                    $scope.$applyAsync($scope.cancelWithConfirmation)
                 else if code == 27
                     editorMedium.blur()
 

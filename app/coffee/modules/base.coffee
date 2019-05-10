@@ -1,10 +1,5 @@
 ###
-# Copyright (C) 2014-2017 Andrey Antukh <niwi@niwi.nz>
-# Copyright (C) 2014-2017 Jesús Espino Garcia <jespinog@gmail.com>
-# Copyright (C) 2014-2017 David Barragán Merino <bameda@dbarragan.com>
-# Copyright (C) 2014-2017 Alejandro Alonso <alejandro.alonso@kaleidos.net>
-# Copyright (C) 2014-2017 Juan Francisco Alcántara <juanfran.alcantara@kaleidos.net>
-# Copyright (C) 2014-2017 Xavi Julian <xavier.julian@kaleidos.net>
+# Copyright (C) 2014-2018 Taiga Agile LLC
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -81,6 +76,7 @@ urls = {
     "project-issues": "/project/:project/issues"
     "project-epics": "/project/:project/epics"
     "project-search": "/project/:project/search"
+    "project-timeline": "/project/:project/timeline"
 
     "project-epics-detail": "/project/:project/epic/:ref"
     "project-userstories-detail": "/project/:project/us/:ref"
@@ -124,10 +120,13 @@ urls = {
     "user-settings-user-profile": "/user-settings/user-profile"
     "user-settings-user-change-password": "/user-settings/user-change-password"
     "user-settings-user-avatar": "/user-settings/user-avatar"
+    "user-settings-user-project-settings": "/user-settings/user-project-settings"
     "user-settings-mail-notifications": "/user-settings/mail-notifications"
     "user-settings-live-notifications": "/user-settings/live-notifications"
+    "user-settings-web-notifications": "/user-settings/web-notifications"
     "user-settings-contrib": "/user-settings/contrib/:plugin"
 
+    "notifications": "/notifications"
 }
 
 init = ($log, $navurls) ->
