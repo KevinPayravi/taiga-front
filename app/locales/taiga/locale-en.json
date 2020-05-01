@@ -39,7 +39,7 @@
         "NEXT": "Next",
         "LOGOUT": "Logout",
         "EXTERNAL_USER": "an external user",
-        "GENERIC_ERROR": "The Taiga says {{error}}.",
+        "GENERIC_ERROR": "Taiga says {{error}}.",
         "IOCAINE_TEXT": "This member is feeling a bit overwhelmed by this task. They will become immune to the iocaine poison over time with your help. For now, they may need a hug.",
         "CLIENT_REQUIREMENT": "A client requirement is a new requirement that was not previously expected and is required to be part of the project",
         "TEAM_REQUIREMENT": "A team requirement is a requirement that must exist in the project but should have no cost for the client",
@@ -330,7 +330,7 @@
         "ALT_LOGIN": "Or login with"
     },
     "LOGIN_FORM": {
-        "ERROR_AUTH_INCORRECT": "According to the Taiga, your username/email or password are incorrect.",
+        "ERROR_AUTH_INCORRECT": "According to Taiga, your username/email or password are incorrect.",
         "SUCCESS": "Welcome to Taiga."
     },
     "REGISTER": {
@@ -378,8 +378,8 @@
         "PLACEHOLDER_NEW_PASSWORD": "New password",
         "PLACEHOLDER_RE_TYPE_NEW_PASSWORD": "Re-type new password",
         "ACTION_RESET_PASSWORD": "Reset Password",
-        "ERROR": "The Taiga can't find your request to recover your password. Try to ask for it again.",
-        "SUCCESS": "The Taiga saved your new password.<br /> Try to <strong>sign in</strong> with it."
+        "ERROR": "Taiga can't find your request to recover your password. Try to ask for it again.",
+        "SUCCESS": "Taiga saved your new password.<br /> Try to <strong>sign in</strong> with it."
     },
     "INVITATION": {
         "PAGE_TITLE": "Invitation acceptance - Taiga",
@@ -391,7 +391,7 @@
     },
     "HOME": {
         "PAGE_TITLE": "Home - Taiga",
-        "PAGE_DESCRIPTION": "The Taiga home page with your main projects and all your assigned and watched user stories, tasks and issues",
+        "PAGE_DESCRIPTION": "Taiga home page with your main projects and all your assigned and watched user stories, tasks and issues",
         "EMPTY_WORKING_ON": "<strong>It feels empty, doesn't it?</strong> Start working with Taiga and you'll see here the stories, tasks and issues you are working on.",
         "EMPTY_WATCHING": "<strong>Follow</strong> user stories, tasks, and issues in your projects and be notified about their changes :)",
         "EMPTY_PROJECT_LIST": "You don't have any project yet",
@@ -501,8 +501,8 @@
             "LOADING_MESSAGE": "Please don't close this page.",
             "ASYNC_MESSAGE": "We will send you an email when ready.",
             "SYNC_MESSAGE": "If the download doesn't start automatically click <a href='{{url}}' download title='Download the dump file'>here</a>.",
-            "ERROR": "The Taiga has some problems generating your dump. Please try it again.",
-            "ERROR_BUSY": "Sorry, the Taiga is experiencing heavy load right now. Please try again in a few minutes."
+            "ERROR": "Taiga has some problems generating your dump. Please try it again.",
+            "ERROR_BUSY": "Sorry, Taiga is experiencing heavy load right now. Please try again in a few minutes."
         },
         "MODULES": {
             "TITLE": "Modules",
@@ -969,7 +969,7 @@
         "IMPORT": {
             "TITLE": "Import Project",
             "DESCRIPTION": "Import your project from multiple platforms into Taiga",
-            "ASYNC_IN_PROGRESS_TITLE": "The Taiga is importing your project",
+            "ASYNC_IN_PROGRESS_TITLE": "Taiga is importing your project",
             "ASYNC_IN_PROGRESS_MESSAGE": "This process could take a few minutes <br/> We will send you an email when ready",
             "UPLOAD_IN_PROGRESS_MESSAGE": "Uploaded {{uploadedSize}} of {{totalSize}}",
             "ERROR": "Taiga has some problems importing your dump data. Please try again.",
@@ -1397,7 +1397,7 @@
         }
     },
     "ERROR": {
-        "TEXT1": "Something happened and the Taiga has captured the error to be able to work on it.",
+        "TEXT1": "Something happened and Taiga has captured the error to be able to work on it.",
         "NOT_FOUND": "Not found",
         "NOT_FOUND_TEXT": "Error 404. The page you are looking for no longer exists. Perhaps you can return back to TAIGA homepage and see if you can find what you are looking for.",
         "PERMISSION_DENIED": "Permission denied",
@@ -1468,7 +1468,7 @@
         "OK": "Everything is ok",
         "WARNING": "Oops, something happened...",
         "WARNING_TEXT": "Your changes were not saved!",
-        "SAVED": "The Taiga saved all your changes!",
+        "SAVED": "Taiga saved all your changes!",
         "CLOSE": "Close notification",
         "MAIL": "Notifications By Mail",
         "DESKTOP": "Desktop notifications using browser alerts",
@@ -1479,14 +1479,14 @@
         "SUBTITLE": "We're sorry you are leaving Taiga, we hope you enjoyed your stay :)",
         "PLACEHOLDER_INPUT_TOKEN": "cancel account token",
         "ACTION_LEAVING": "Yes, I'm leaving!",
-        "SUCCESS": "The Taiga removed your account"
+        "SUCCESS": "Taiga removed your account"
     },
     "CHANGE_EMAIL_FORM": {
         "TITLE": "Change your email",
         "SUBTITLE": "One click more and your email will be updated!",
         "PLACEHOLDER_INPUT_TOKEN": "change email token",
         "ACTION_CHANGE_EMAIL": "Change email",
-        "SUCCESS": "The Taiga updated your email"
+        "SUCCESS": "Taiga updated your email"
     },
     "ISSUES": {
         "PAGE_TITLE": "Issues - {{projectName}}",
