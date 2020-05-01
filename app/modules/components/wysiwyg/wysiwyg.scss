@@ -14,7 +14,7 @@
     }
     h2 {
         @include font-size(larger);
-        @include font-type(bold);
+        @include font-type(semibold);
         line-height: 1.225;
         margin-bottom: 1rem;
         margin-top: 1rem;
@@ -22,13 +22,13 @@
     }
     h3 {
         @include font-size(large);
-        @include font-type(bold);
+        @include font-type(semibold);
         margin-bottom: 1rem;
         margin-top: 1rem;
         padding-bottom: .5rem;
     }
     h4 {
-        @include font-type(bold);
+        @include font-type(semibold);
         margin-bottom: 1rem;
         margin-top: 1rem;
     }
@@ -208,6 +208,7 @@ tg-wysiwyg {
         width: 100%;
     }
     .mode-editor {
+        margin-top: .25rem;
         span {
             color: $gray-light;
             cursor: pointer;
@@ -232,6 +233,9 @@ tg-wysiwyg {
     }
     .read-mode {
         cursor: pointer;
+        .wysiwyg {
+            padding: .5rem 0;
+        }
     }
     .medium {
         border: 1px solid transparent;
@@ -286,4 +290,8 @@ tg-wysiwyg {
     button:hover svg {
         fill: $primary-light;
     }
+}
+
+.medium-editor-anchor-preview .medium-editor-toolbar-anchor-preview-inner {
+    color: $grey-20;
 }

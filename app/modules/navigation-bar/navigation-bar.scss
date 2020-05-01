@@ -1,6 +1,7 @@
 $dropdown-width: 350px;
 
 .navbar {
+    background-color: $primary;
     display: flex;
     height: $navbar;
     justify-content: space-between;
@@ -46,10 +47,15 @@ $dropdown-width: 350px;
         .active {
             background: rgba($white, .95);
             color: $secondary-dark;
+            svg {
+                fill: $primary-50;
+                stroke: $primary-50;
+            }
         }
         svg {
             @include svg-size(1.2rem);
-            fill: rgba($primary-dark, .8);
+            fill: $primary-50;
+            stroke: $primary-50;
             transition: all .2s linear;
         }
     }
@@ -62,11 +68,15 @@ $dropdown-width: 350px;
             background: rgba($black, .2);
             color: $primary-light;
             svg {
-                fill: $primary-light;
-                transition: all .2s linear;
+                fill: $primary-25;
+                stroke: $primary-25;
             }
         }
         &.user-avatar {
+            display: flex;
+            justify-content: flex-end;
+            line-height: 40px;
+            min-height: 40px;
             min-width: 200px;
             padding: 0;
             padding-left: 2rem;
@@ -78,7 +88,7 @@ $dropdown-width: 350px;
 
     }
     .user-avatar img {
-        height: 2.5rem;
+        @include avatar-img(2.5rem);
         margin-left: .5rem;
         vertical-align: middle;
     }
@@ -89,11 +99,6 @@ $dropdown-width: 350px;
                 animation: dropdownFade .2s cubic-bezier(.09, 0, .99, .01) both;
                 display: block;
             }
-        }
-    }
-    .navbar-dropdown {
-        a {
-            padding: .8rem .5rem;
         }
     }
     %dropdown {
@@ -157,10 +162,14 @@ $dropdown-width: 350px;
             }
         }
         &.see-more-projects-btn {
+            display: flex;
             margin-bottom: .3rem;
+            padding: 0;
         }
         &.create-project-btn {
+            display: flex;
             flex: 1;
+            padding: 0;
         }
         &.blocked-project {
             color: $gray;
@@ -211,7 +220,8 @@ $dropdown-width: 350px;
         }
     }
     .counter {
-        background: $primary;
+        @include font-type(bold);
+        background: $secondary;
         border-radius: 50%;
         color: $white;
         font-size: .7rem;

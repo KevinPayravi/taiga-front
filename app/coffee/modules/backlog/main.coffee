@@ -55,7 +55,8 @@ class BacklogController extends mixOf(taiga.Controller, taiga.PageMixin, taiga.F
         "tgErrorHandlingService",
         "$tgStorage",
         "tgFilterRemoteStorageService",
-        "tgProjectService"
+        "tgProjectService",
+        "tgLoader"
     ]
 
     storeCustomFiltersName: 'backlog-custom-filters'
@@ -65,7 +66,7 @@ class BacklogController extends mixOf(taiga.Controller, taiga.PageMixin, taiga.F
 
     constructor: (@scope, @rootscope, @repo, @confirm, @rs, @params, @q, @location, @appMetaService, @navUrls,
                   @events, @analytics, @translate, @loading, @rs2, @modelTransform, @errorHandlingService,
-                  @storage, @filterRemoteStorageService, @projectService) ->
+                  @storage, @filterRemoteStorageService, @projectService, @tgLoader) ->
         bindMethods(@)
 
         @.backlogOrder = {}
@@ -130,7 +131,6 @@ class BacklogController extends mixOf(taiga.Controller, taiga.PageMixin, taiga.F
             @.loadProjectStats()
 
             @rootscope.$broadcast("filters:update")
-            @confirm.notify("success")
             @analytics.trackEvent("userstory", "create", "create userstory on backlog", 1)
 
         @scope.$on "sprintform:edit:success", =>
@@ -154,10 +154,13 @@ class BacklogController extends mixOf(taiga.Controller, taiga.PageMixin, taiga.F
 
             @rootscope.$broadcast("filters:update")
 
+        @scope.$on "filters:update", () => @.generateFilters(milestone = "null")
+
         @scope.$on("sprint:us:move", @.moveUs)
         @scope.$on "sprint:us:moved", () =>
             @.loadSprints()
             @.loadProjectStats()
+            @rootscope.$broadcast("filters:update")
 
         @scope.$on("backlog:load-closed-sprints", @.loadClosedSprints)
         @scope.$on("backlog:unload-closed-sprints", @.unloadClosedSprints)
@@ -307,10 +310,13 @@ class BacklogController extends mixOf(taiga.Controller, taiga.PageMixin, taiga.F
                 @.disablePagination = false
                 @.page++
 
+            @rootscope.$broadcast("backlog:userstories:loaded")
+
             # The broadcast must be executed when the DOM has been fully reloaded.
             # We can't assure when this exactly happens so we need a defer
             scopeDefer @scope, =>
                 @scope.$broadcast("userstories:loaded")
+                @tgLoader.pageLoaded()
 
             return userstories
 
@@ -683,7 +689,8 @@ BacklogDirective = ($repo, $rootscope, $translate, $rs) ->
             moveUssToSprint(selectedUss, $scope.sprints[0])
 
         $scope.$on "sprintform:create:success:callback", (e, ussToMove) ->
-            _.partial(moveToCurrentSprint, ussToMove)()
+            if ussToMove
+                _.partial(moveToCurrentSprint, ussToMove)()
 
         shiftPressed = false
         lastChecked = null

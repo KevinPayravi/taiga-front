@@ -1,29 +1,29 @@
 .wiki-nav {
+    @include sidebar-narrow-width;
     padding: 0;
-    width: 240px;
     .title {
         @include font-size(larger);
-        padding: 2rem 1rem 0 2rem;
+        padding: 2rem 1rem 0 1.5rem;
+        @include until($widescreen) {
+            font-size: 1.5rem;
+            padding: 2rem .75rem 0;
+        }
     }
     .add-button {
         align-items: center;
-        display: flex;
-        padding: 1rem 1rem 1rem 2rem;
-        text-transform: uppercase;
-        vertical-align: middle;
-        &:hover {
-            svg {
-                background: $primary-light;
-            }
+        display: inline-flex;
+        margin: 1rem 1rem 1rem 1.75rem;
+        @include until($widescreen) {
+            margin: .5rem .75rem;
         }
-        svg {
-            @include svg-size(1.25rem);
-            background: $gray-light;
-            border-radius: 2px;
-            fill: $white;
+        .button-small {
+            height: 28px;
             margin-right: .5rem;
-            padding: .25rem;
-            transition: background .2s linear;
+            width: 28px;
+            svg {
+                height: 1rem;
+                width: 1rem;
+            }
         }
     }
     .wiki-link-container {
@@ -40,6 +40,9 @@
         @include placeholder {
             color: $gray-light;
         }
+        @include until($widescreen) {
+            margin: .5rem .5rem .5rem 1rem;
+        }
     }
     .loading {
         padding: 1rem;
@@ -51,9 +54,13 @@
     border-bottom: 1px solid $whitish;
     display: flex;
     justify-content: space-between;
-    margin-left: 2rem;
+    margin-left: 1rem;
+    padding-left: .75rem;
     padding-right: 1rem;
     position: relative;
+    @include until($widescreen) {
+        margin-left: 0;
+    }
     &:hover {
         .remove-wiki-page {
             cursor: pointer;

@@ -1,22 +1,12 @@
 .backlog-filter {
+    @include sidebar-medium-width-hidden();
     align-items: stretch;
     display: flex;
     opacity: 0;
     overflow: hidden;
     position: relative;
-    transition: all .2s linear;
-    width: 0;
-    tg-filter {
-        transform: translateX(-260px);
-        transition: all .2s linear;
-    }
     &.active {
         opacity: 1;
-        transition: all .2s linear;
-        width: 260px;
-        tg-filter {
-            transform: translateX(0);
-        }
     }
 }
 .backlog-menu {
@@ -25,10 +15,15 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
-    @include breakpoint(laptop) {
+    @include until($widescreen) {
         flex-direction: column;
     }
     .menu-button {
+        @include font-type(light);
+        &:hover,
+        &:visited:hover {
+            color: $grey-90;
+        }
         &.move-to-sprint {
             display: none;
         }

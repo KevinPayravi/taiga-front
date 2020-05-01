@@ -60,7 +60,7 @@
     .title {
         @include font-size(medium);
         @include font-type(text);
-        @include font-type(bold);
+        @include font-type(semibold);
         align-content: center;
         background: $mass-white;
         display: flex;
@@ -80,6 +80,9 @@
         width: 0;
     }
     .looking-for-people {
+        .looking-for-people-content {
+            margin: .5rem auto 2rem;
+        }
         img {
             width: 100%;
         }
@@ -93,6 +96,11 @@
             @include font-size(small);
             @include font-type(light);
             margin-bottom: .5rem;
+        }
+        a {
+            color: $primary;
+            font-size: .8rem;
+            font-weight: 600;
         }
         .contact-team {
             margin-bottom: 1rem;
@@ -123,7 +131,7 @@
         }
         .icon-badge {
             @include svg-size(1.2rem);
-            background: rgba($black, .5);
+            background-color: $white;
             bottom: 5%;
             fill: $primary-light;
             padding: .1rem;

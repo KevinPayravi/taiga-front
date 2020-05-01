@@ -6,7 +6,7 @@
     }
     .row {
         &:hover {
-            background: lighten($primary, 65%);
+            background: $primary-lighter;
             transition: background .2s ease-in;
         }
         .icon {
@@ -22,7 +22,7 @@
     }
     .title {
         @include font-size(medium);
-        @include font-type(bold);
+        @include font-type(semibold);
         border-bottom: 1px solid $gray-light;
         &:hover {
             background: transparent;
@@ -175,7 +175,7 @@
     }
     .level-field,
     .modified-field {
-        @include breakpoint(laptop) {
+        @include until($widescreen) {
             display: none;
         }
     }

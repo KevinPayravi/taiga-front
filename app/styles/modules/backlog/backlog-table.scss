@@ -19,9 +19,6 @@
     }
     .backlog-table-title,
     .row {
-        &:hover {
-            background: transparent;
-        }
         .input {
             flex-basis: 25px;
             flex-grow: 0;
@@ -32,16 +29,22 @@
             width: 100%;
         }
         .status {
-            flex-grow: 1;
+            flex-basis: 150px;
+            flex-grow: 0;
             flex-shrink: 0;
+            white-space: nowrap;
         }
         .points {
             flex-basis: 125px;
             flex-grow: 0;
+            margin-left: 20px;
+            white-space: nowrap;
         }
     }
+    .backlog-table-title .points {
+        margin-right: -4px;
+    }
     .votes {
-        color: $gray;
         flex-basis: 65px;
         flex-grow: 0;
         flex-shrink: 0;
@@ -110,8 +113,11 @@
             @include popover(200px, 'auto', 30px, 0, '');
         }
         li {
-            display: inline-block;
-            width: 23%;
+            float: left;
+            width: 25%;
+            &:nth-last-child(4n) {
+                clear: left;
+            }
         }
         a {
             display: block;
@@ -153,14 +159,11 @@
         cursor: move;
         flex-wrap: nowrap;
         position: relative;
-        &:hover {
-            background: lighten($primary, 60%);
-            transition: background .2s ease-in;
-            transition-delay: .2s;
+        &:hover:not(.blocked) {
+            background-color: $primary-10;
             .us-settings,
             .icon-drag {
                 opacity: 1;
-                transition: all .2s ease-in;
             }
         }
         &:last-child {
@@ -170,7 +173,6 @@
             background: lighten($primary, 60%);
             box-shadow: 1px 1px 10px rgba($black, .1);
             opacity: .9;
-            transition: background .2s ease-in;
         }
         .points {
             .not-clickable:hover {
@@ -197,7 +199,6 @@
     }
     .is-checked {
         background: lighten($primary, 60%);
-        transition: background .2s ease-in;
     }
     input {
         &:checked {
@@ -231,10 +232,6 @@
         background: $red-light;
         border-bottom: 1px solid $white;
         color: $white;
-        &:hover {
-            background: $red;
-            transition: background .2s ease-in;
-        }
         a {
             // scss-lint:disable ImportantRule
             color: $white !important;
@@ -242,8 +239,14 @@
                 color: $white;
             }
         }
-        .icon {
+        .votes {
             color: $white;
+        }
+        .icon,
+        .icon:hover,
+        .due-date-icon {
+            fill: $white;
+            stroke: $white;
             &:hover {
                 color: $white;
             }

@@ -29,8 +29,6 @@ RelatedTaskRowDirective = ($repo, $compile, $confirm, $rootscope, $loading, $tem
     templateEdit = $template.get("task/related-task-row-edit.html", true)
 
     link = ($scope, $el, $attrs, $model) ->
-        @childScope = $scope.$new()
-
         saveTask = debounce 2000, (task) ->
             task.subject = $el.find('input').val()
 
@@ -50,7 +48,8 @@ RelatedTaskRowDirective = ($repo, $compile, $confirm, $rootscope, $loading, $tem
             return promise
 
         renderEdit = (task) ->
-            @childScope.$destroy()
+            if (@childScope)
+                @childScope.$destroy()
             @childScope = $scope.$new()
             $el.off()
             $el.html($compile(templateEdit({task: task}))(childScope))
@@ -276,7 +275,7 @@ RelatedTasksDirective = ($repo, $rs, $rootscope) ->
 module.directive("tgRelatedTasks", ["$tgRepo", "$tgResources", "$rootScope", RelatedTasksDirective])
 
 
-RelatedTaskAssignedToInlineEditionDirective = ($repo, $rootscope, $translate, avatarService) ->
+RelatedTaskAssignedToInlineEditionDirective = ($repo, $rootscope, $translate, avatarService, $lightboxFactory) ->
     template = _.template("""
     <img style="background-color: <%- bg %>" src="<%- imgurl %>" alt="<%- name %>"/>
     <figcaption><%- name %></figcaption>
@@ -312,7 +311,29 @@ RelatedTaskAssignedToInlineEditionDirective = ($repo, $rootscope, $translate, av
         updateRelatedTask(task)
 
         $el.on "click", ".task-assignedto", (event) ->
-            $rootscope.$broadcast("assigned-to:add", task)
+            event.preventDefault()
+            event.stopPropagation()
+
+            onClose = (assignedUsers) =>
+                task.assigned_to = assignedUsers.pop() || null
+                if autoSave
+                    $repo.save(task).then ->
+                        $scope.$emit("related-tasks:assigned-to-changed")
+                        updateRelatedTask(task)
+
+            $lightboxFactory.create(
+                'tg-lb-select-user',
+                {
+                    "class": "lightbox lightbox-select-user",
+                },
+                {
+                    "currentUsers": [task.assigned_to],
+                    "activeUsers": $scope.activeUsers,
+                    "onClose": onClose,
+                    "single": true,
+                    "lbTitle": $translate.instant("COMMON.ASSIGNED_USERS.ADD"),
+                }
+            )
 
         taiga.bindOnce $scope, "project", (project) ->
             # If the user has not enough permissions the click events are unbinded
@@ -320,18 +341,10 @@ RelatedTaskAssignedToInlineEditionDirective = ($repo, $rootscope, $translate, av
                 $el.unbind("click")
                 $el.find("a").addClass("not-clickable")
 
-        $scope.$on "assigned-to:added", debounce 2000, (ctx, userId, updatedRelatedTask) =>
-            if updatedRelatedTask.id == task.id
-                updatedRelatedTask.assigned_to = userId
-                if autoSave
-                    $repo.save(updatedRelatedTask).then ->
-                        $scope.$emit("related-tasks:assigned-to-changed")
-                updateRelatedTask(updatedRelatedTask)
-
         $scope.$on "$destroy", ->
             $el.off()
 
     return {link: link}
 
 module.directive("tgRelatedTaskAssignedToInlineEdition", ["$tgRepo", "$rootScope", "$translate", "tgAvatarService",
-                                                          RelatedTaskAssignedToInlineEditionDirective])
+                                                          "tgLightboxFactory", RelatedTaskAssignedToInlineEditionDirective])

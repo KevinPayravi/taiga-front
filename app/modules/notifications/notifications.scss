@@ -10,7 +10,7 @@
         padding: .5em 1em;
     }
     .title {
-        color: $black;
+        color: $primary;
         flex-grow: 1;
         font-size: 1.8em;
         line-height: 1.8em;
@@ -47,6 +47,7 @@
             font-size: 1.05rem;
         }
         .entry-project {
+            color: $grey-50;
             max-width: initial;
             text-overflow: initial;
             white-space: initial;
@@ -79,7 +80,7 @@
             margin-bottom: 0;
         }
         a {
-            @include font-type(bold);
+            @include font-type(semibold);
             &.user-link,
             &.project-link {
                 color: $blackish;
@@ -108,7 +109,7 @@
             margin-right: .7rem;
         }
         .entry-project {
-            @include font-type(bold);
+            @include font-type(semibold);
             color: $gray-lighter;
             display: inline-block;
             font-size: .9rem;

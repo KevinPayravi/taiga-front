@@ -22,9 +22,15 @@ class WysiwygService
         "tgWysiwygCodeHightlighterService",
         "tgProjectService",
         "$tgNavUrls",
-        "$tgEmojis"
+        "$tgEmojis",
+        "tgAttachmentsService",
+        "$q",
     ]
-    constructor: (@wysiwygCodeHightlighterService, @projectService, @navurls, @emojis) ->
+    constructor: (@wysiwygCodeHightlighterService, @projectService, @navurls, @emojis, @attachmentsService, @q) ->
+        @.members = @projectService.project.get('members').toJS()  # Array of User objects
+        @.memberObjectMap = {}
+        for m in @.members
+            @.memberObjectMap[m.username] = m
 
     searchEmojiByName: (name) ->
         return @emojis.searchByName(name)
@@ -46,11 +52,51 @@ class WysiwygService
 
         for link in links
             if link.getAttribute('href').indexOf('/profile/') != -1
+                # https://github.com/taigaio/taiga-front/issues/1859 (Show full name in user mentions autocompletion)
+                username = link.getAttribute('href').split('/profile/')[1]  # Override username <-> full_name
+                link.innerText = '@' + username
                 link.parentNode.replaceChild(document.createTextNode(link.innerText), link)
             else if link.getAttribute('href').indexOf('/t/') != -1
                 link.parentNode.replaceChild(document.createTextNode(link.innerText), link)
 
         return el.innerHTML
+
+    getAttachmentData: (el, tokens, attr) ->
+        deferred = @q.defer()
+        @attachmentsService.get(tokens[0], tokens[1]).then (response) ->
+            el.setAttribute(attr, "#{response.data.url}#_taiga-refresh=#{tokens[0]}:#{tokens[1]}")
+            deferred.resolve(el)
+
+        return deferred.promise
+
+    refreshAttachmentURL: (html) ->
+        el = document.createElement( 'html' )
+        el.innerHTML = html
+        regex = /#_taiga-refresh=([a-zA-Z]*\:\d+)/
+
+        links = {
+            "elements": el.querySelectorAll('a'),
+            "attr": "href",
+        }
+        images = {
+            "elements": el.querySelectorAll('img'),
+            "attr": "src",
+        }
+
+        deferred = @q.defer()
+        promises = []
+        _.map [links, images], (tag) =>
+            _.map tag.elements, (e) =>
+                if e.getAttribute(tag.attr).indexOf('#_taiga-refresh=') != -1
+                    match = e.getAttribute(tag.attr).match(regex)
+                    if match
+                        tokens = match[1].split(":")
+                        promises.push(@.getAttachmentData(e, tokens, tag.attr))
+
+        @q.all(promises).then ->
+            deferred.resolve(el.innerHTML)
+
+        return deferred.promise
 
     searchWikiLinks: (html) ->
         el = document.createElement( 'html' )
@@ -81,7 +127,7 @@ class WysiwygService
         }
 
         codeLanguageConverter = {
-            filter:  (node) =>
+            filter:  (node) ->
                 return node.nodeName == 'PRE' &&
                   node.firstChild &&
                   node.firstChild.nodeName == 'CODE'
@@ -148,8 +194,13 @@ class WysiwygService
                         project: @projectService.project.get('slug'),
                         username: match.getMention()
                     })
+                    if @.memberObjectMap.hasOwnProperty(match.getMention())
+                        member = @.memberObjectMap[match.getMention()]
+                        if member.full_name
+                            return '<a class="autolink" href="' + profileUrl + '">@' + member.full_name + '</a>'
+                    else
+                        return '<a class="autolink" href="' + profileUrl + '">@' + match.getMention() + '</a>'
 
-                    return '<a class="autolink" href="' + profileUrl + '">@' + match.getMention() + '</a>'
                 else if match.getType() == 'hashtag'
                     url = @navurls.resolve('project-detail-ref', {
                         project: @projectService.project.get('slug'),
@@ -161,7 +212,7 @@ class WysiwygService
 
         Autolinker.matcher.Mention.prototype.parseMatches = @.parseMentionMatches.bind(autolinker)
 
-        return autolinker.link(html);
+        return autolinker.link(html)
 
     getHTML: (text) ->
         return "" if !text || !text.length
@@ -180,7 +231,6 @@ class WysiwygService
         md.use(window.markdownitLazyHeaders)
         result = md.render(text)
         result = @.searchWikiLinks(result)
-
         result = @.autoLinkHTML(result)
 
         return result

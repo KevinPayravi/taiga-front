@@ -5,7 +5,7 @@
     }
     .title {
         @include font-size(medium);
-        @include font-type(bold);
+        @include font-type(semibold);
     }
     .table-main {
         @include font-size(small);
@@ -38,7 +38,7 @@
         .user-avatar {
             flex-grow: 0;
             img {
-                height: 2rem;
+                @include avatar-img(2rem);
             }
         }
         .user-full-name {

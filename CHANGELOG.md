@@ -2,6 +2,133 @@
 
 ## Unreleased
 
+## 5.0.10 (2020-03-12)
+
+### Misc
+
+- Fixed CSS bug.
+
+## 5.0.9 (2020-03-11)
+
+### Misc
+
+- Fixed several minor bugs.
+
+### i18n
+
+- Updated lots of strings and updated their translations. Finally, oompa loompas have been substituted by the Taiga.
+
+## 5.0.8 (2020-02-17)
+
+### i18n
+
+- Update Latvian translation.
+
+### Misc
+
+- Add Google tag manager integration.
+
+## 5.0.7 (2020-02-06)
+
+### i18n
+
+- Update Korean translation.
+- Add Latvian translation.
+
+### Misc
+
+- Several minor bugfixes.
+
+## 5.0.6 (2020-01-15)
+
+### Features
+
+- Refresh default theme.
+
+### Misc
+
+- Several minor bugfixes.
+
+## 5.0.5 (2020-01-08)
+
+### Features
+
+- Set login form visibility based on instance configuration.
+
+- Promote task and issues to user story with watchers, attachments and comments.
+
+### Misc
+
+- Several minor bugfixes.
+
+## 5.0.4 (2019-12-04)
+
+- Fix translation problem with pluralization.
+
+## 5.0.3 (2019-12-02)
+
+- Fix several minor CSS bugs.
+
+## 5.0.2 (2019-11-21)
+
+- Update search counters on backlog when an US is moved.
+
+- Fix several minor CSS bugs.
+
+## 5.0.1 (2019-11-15)
+
+- Fix CSS issue.
+
+## 5.0.0 (2019-11-13)
+
+- BREAKING CHANGE Big refactor of base CSS for themes that can break custom themes.
+
+- Change comment box position based on comments order.
+
+- Refresh attachment URL on markdown fields to support protected backend.
+
+- Fixed drag&drop of attachments to text fields.
+
+- Redesign detail header.
+
+## 4.2.14 (2019-10-01)
+
+- Disabled malfunctioning notification infinite scroll.
+- Updated translations. Big improvement in Italian coverage (grazie mille!).
+- Several minor fixes.
+
+## 4.2.13 (2019-08-06)
+
+- Minor fixes
+
+## 4.2.12 (2019-08-06)
+
+- Add Taiga Fresh theme.
+- Minor fixes.
+
+## 4.2.11 (2019-07-24)
+
+- Progressive Kanban render.
+- Minor fixes.
+
+## 4.2.10 (2019-07-11)
+
+- Close loader before kanban/backlog filter request.
+
+## 4.2.8 (2019-07-03)
+
+- Fix multiple assign US button
+
+## 4.2.7 (2019-06-24)
+
+- Assign roles as watchers
+- Minor bug fixes
+
+## 4.2.6 (2019-06-12)
+
+- Vote button redesign
+- Minor bug fixes
+
 ## 4.2.5 (2019-05-09)
 - Revet remove bluebird dependency
 
